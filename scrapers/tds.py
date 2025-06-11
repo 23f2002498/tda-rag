@@ -17,8 +17,8 @@ def scrape(html,title):
             print(f"[!] Skipping (no content): {title}")
             return
         text = str(article)
-        os.makedirs("tds", exist_ok=True)
-        filename = os.path.join("tds", sanitize_filename(title) + ".txt")
+        os.makedirs("data/tds", exist_ok=True)
+        filename = os.path.join("data/tds", sanitize_filename(title) + ".html")
 
         with open(filename, 'w', encoding='utf-8') as f:
             f.write(text)

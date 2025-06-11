@@ -3,7 +3,7 @@
       w3m -dump -T text/html -cols 80 -no-graph "$f" &gt; "${f%.html}.md"; \
     done'</span> _ <span class="token punctuation">{</span><span class="token punctuation">}</span> +</code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><ul><li><code>find . -type f -name '*.html'</code>: Finds all HTML files in the current directory and subdirectories</li><li><code>-exec sh -c '...' _ {} +</code>: Executes a shell command with batched files for efficiency</li><li><code>for f; do ... done</code>: Loops through each file in the batch</li><li><code>w3m -dump -T text/html -cols 80 -no-graph "$f"</code>: Uses the w3m text browser to render HTML<ul><li><code>-dump</code>: Output the rendered page to stdout</li><li><code>-T text/html</code>: Specify input format as HTML</li><li><code>-cols 80</code>: Set output width to 80 columns</li><li><code>-no-graph</code>: Don’t show graphic characters for tables and frames</li></ul></li><li><code>&gt; "${f%.html}.md"</code>: Save output to a .md file with the same base name</li></ul><h3 id="comparison"><a class="anchor" data-id="comparison" href="#/convert-html-to-markdown?id=comparison"><span>Comparison</span></a></h3>
 <div class="table-wrapper">
-<table id="_msuxblmsv">
+<table id="_f1rxewb5l">
 <thead><tr>
 <th>Approach</th>
 <th>Speed</th>
