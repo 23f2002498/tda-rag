@@ -1,0 +1,24 @@
+<article class="markdown-section" id="main"><h2 id="topic-modeling"><a class="anchor" data-id="topic-modeling" href="#/topic-modeling?id=topic-modeling"><span>Topic Modeling</span></a></h2><p><a href="https://youtu.be/eQUNhq91DlI" rel="noopener" target="_blank"><img alt="LLM Topic Modeling" data-origin="https://i.ytimg.com/vi_webp/eQUNhq91DlI/sddefault.webp" src="https://i.ytimg.com/vi_webp/eQUNhq91DlI/sddefault.webp"/></a></p><p>You’ll learn to use text embeddings to find text similarity and use that to create topics automatically from text, covering:</p><ul><li><strong>Embeddings</strong>: How large language models convert text into numerical representations.</li><li><strong>Similarity Measurement</strong>: Understanding how similar embeddings indicate similar meanings.</li><li><strong>Embedding Visualization</strong>: Using tools like Tensorflow Projector to visualize embedding spaces.</li><li><strong>Embedding Applications</strong>: Using embeddings for tasks like classification and clustering.</li><li><strong>OpenAI Embeddings</strong>: Using OpenAI’s API to generate embeddings for text.</li><li><strong>Model Comparison</strong>: Exploring different embedding models and their strengths and weaknesses.</li><li><strong>Cosine Similarity</strong>: Calculating cosine similarity between embeddings for more reliable similarity measures.</li><li><strong>Embedding Cost</strong>: Understanding the cost of generating embeddings using OpenAI’s API.</li><li><strong>Embedding Range</strong>: Understanding the range of values in embeddings and their significance.</li></ul><p>Here are the links used in the video:</p><ul><li><a href="https://colab.research.google.com/drive/15L075RLrwXkxa29EGT-1sNm_dqJRBTe_" rel="noopener" target="_blank">Jupyter Notebook</a></li><li><a href="https://projector.tensorflow.org/" rel="noopener" target="_blank">Tensorflow projector</a></li><li><a href="https://platform.openai.com/docs/guides/embeddings" rel="noopener" target="_blank">Embeddings guide</a></li><li><a href="https://platform.openai.com/docs/api-reference/embeddings" rel="noopener" target="_blank">Embeddings reference</a></li><li><a href="https://scikit-learn.org/stable/modules/clustering.html" rel="noopener" target="_blank">Clustering on scikit-learn</a></li><li><a href="https://huggingface.co/spaces/mteb/leaderboard" rel="noopener" target="_blank">Massive text embedding leaderboard (MTEB)</a></li><li><a href="https://huggingface.co/Alibaba-NLP/gte-large-en-v1.5" rel="noopener" target="_blank"><code>gte-large-en-v1.5</code> embedding model</a></li><li><a href="https://www.s-anand.net/blog/embeddings-similarity-threshold/" rel="noopener" target="_blank">Embeddings similarity threshold</a></li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/multimodal-embeddings">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Multimodal Embeddings</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/vector-databases">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Vector databases</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

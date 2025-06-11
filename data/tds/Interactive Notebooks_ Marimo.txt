@@ -1,0 +1,34 @@
+<article class="markdown-section" id="main"><h2 id="interactive-notebooks-marimo"><a class="anchor" data-id="interactive-notebooks-marimo" href="#/marimo?id=interactive-notebooks-marimo"><span>Interactive Notebooks: Marimo</span></a></h2><p><a href="https://marimo.app/" rel="noopener" target="_blank">Marimo</a> is a new take on notebooks that solves some headaches of Jupyter. It runs cells reactively - when you change one cell, all dependent cells update automatically, just like a spreadsheet.</p><p>Marimo’s cells can’t be run out of order. This makes Marimo more reproducible and easier to debug, but requires a mental shift from the Jupyter/Colab way of working.</p><p>It also runs Python directly in the browser and is quite interactive. <a href="https://marimo.io/gallery" rel="noopener" target="_blank">Browse the gallery of examples</a>. With a wide variety of interactive widgets, It’s growing popular as an alternative to Streamlit for building data science web apps.</p><p>Common Operations:</p><pre class="language-python" data-lang="python" v-pre=""><code class="lang-python language-python"><span class="token comment"># Create new notebook</span>
+uvx marimo new
+
+<span class="token comment"># Run notebook server</span>
+uvx marimo edit notebook<span class="token punctuation">.</span>py
+
+<span class="token comment"># Export to HTML</span>
+uvx marimo export notebook<span class="token punctuation">.</span>py</code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Best Practices:</p><ol><li><p><strong>Cell Dependencies</strong></p><ul><li>Keep cells focused and atomic</li><li>Use clear variable names</li><li>Document data flow between cells</li></ul></li><li><p><strong>Interactive Elements</strong></p><pre class="language-python" data-lang="python" v-pre=""><code class="lang-python language-python"><span class="token comment"># Add interactive widgets</span>
+slider <span class="token operator">=</span> mo<span class="token punctuation">.</span>ui<span class="token punctuation">.</span>slider<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token comment"># Create dynamic Markdown</span>
+mo<span class="token punctuation">.</span>md<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>slider<span class="token punctuation">}</span></span><span class="token string"> {"</span></span>🟢<span class="token string">" * slider.value}"</span><span class="token punctuation">)</span></code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre></li><li><p><strong>Version Control</strong></p><ul><li>Keep notebooks are Python files</li><li>Use Git to track changes</li><li>Publish on <a href="https://marimo.app/" rel="noopener" target="_blank">marimo.app</a> for collaboration</li></ul></li></ol><p><a href="https://youtu.be/9R2cQygaoxQ" rel="noopener" target="_blank"><img alt='"marimo: an open-source reactive notebook for Python" - Akshay Agrawal (Nbpy2024)' data-origin="https://i.ytimg.com/vi_webp/9R2cQygaoxQ/sddefault.webp" src="https://i.ytimg.com/vi_webp/9R2cQygaoxQ/sddefault.webp"/></a></p><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/narratives-with-llms">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Narratives with LLMs</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/revealjs">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">HTML Slides: RevealJS</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

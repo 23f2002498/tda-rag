@@ -1,0 +1,62 @@
+<article class="markdown-section" id="main"><h2 id="containers-docker-podman"><a class="anchor" data-id="containers-docker-podman" href="#/docker?id=containers-docker-podman"><span>Containers: Docker, Podman</span></a></h2><p><a href="https://www.docker.com/" rel="noopener" target="_blank">Docker</a> and <a href="https://podman.io/" rel="noopener" target="_blank">Podman</a> are containerization tools that package your application and its dependencies into a standardized unit for software development and deployment.</p><p>Docker is the industry standard. Podman is compatible with Docker and has better security (and a slightly more open license). In this course, we recommend Podman but Docker works in the same way.</p><p>Initialize the container engine:</p><pre class="language-bash" data-lang="bash" v-pre=""><code class="lang-bash language-bash"><span class="token function">podman</span> machine init
+<span class="token function">podman</span> machine start</code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Common Operations. (You can use <code>docker</code> instead of <code>podman</code> in the same way.)</p><pre class="language-bash" data-lang="bash" v-pre=""><code class="lang-bash language-bash"><span class="token comment"># Pull an image</span>
+<span class="token function">podman</span> pull python:3.11-slim
+
+<span class="token comment"># Run a container</span>
+<span class="token function">podman</span> run <span class="token parameter variable">-it</span> python:3.11-slim
+
+<span class="token comment"># List containers</span>
+<span class="token function">podman</span> <span class="token function">ps</span> <span class="token parameter variable">-a</span>
+
+<span class="token comment"># Stop container</span>
+<span class="token function">podman</span> stop container_id
+
+<span class="token comment"># Scan image for vulnerabilities</span>
+<span class="token function">podman</span> scan myapp:latest
+
+<span class="token comment"># Remove container</span>
+<span class="token function">podman</span> <span class="token function">rm</span> container_id
+
+<span class="token comment"># Remove all stopped containers</span>
+<span class="token function">podman</span> container prune</code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>You can create a <code>Dockerfile</code> to build a container image. Here’s a sample <code>Dockerfile</code> that converts a Python script into a container image.</p><pre class="language-dockerfile" data-lang="dockerfile" v-pre=""><code class="lang-dockerfile language-dockerfile">FROM python:3.11-slim
+# Set working directory
+WORKDIR /app
+# Typically, you would use `COPY . .` to copy files from the host machine,
+# but here we're just using a simple script.
+RUN echo 'print("Hello, world!")' &gt; app.py
+# Run the script
+CMD ["python", "app.py"]</code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>To build, run, and deploy the container, run these commands:</p><pre class="language-bash" data-lang="bash" v-pre=""><code class="lang-bash language-bash"><span class="token comment"># Create an account on https://hub.docker.com/ and then login</span>
+<span class="token function">podman</span> login docker.io
+
+<span class="token comment"># Build and run the container</span>
+<span class="token function">podman</span> build <span class="token parameter variable">-t</span> py-hello <span class="token builtin class-name">.</span>
+<span class="token function">podman</span> run <span class="token parameter variable">-it</span> py-hello
+
+<span class="token comment"># Push the container to Docker Hub. Replace $DOCKER_HUB_USERNAME with your Docker Hub username.</span>
+<span class="token function">podman</span> push py-hello:latest docker.io/<span class="token variable">$DOCKER_HUB_USERNAME</span>/py-hello
+
+<span class="token comment"># Push adding a specific tag, e.g. dev</span>
+<span class="token assign-left variable">TAG</span><span class="token operator">=</span>dev <span class="token function">podman</span> push py-hello docker.io/<span class="token variable">$DOCKER_HUB_USERNAME</span>/py-hello:<span class="token variable">$TAG</span></code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Tools:</p><ul><li><a href="https://github.com/wagoodman/dive" rel="noopener" target="_blank">Dive</a>: Explore image layers</li><li><a href="https://github.com/containers/skopeo" rel="noopener" target="_blank">Skopeo</a>: Work with container images</li><li><a href="https://github.com/aquasecurity/trivy" rel="noopener" target="_blank">Trivy</a>: Security scanner</li></ul><p><a href="https://youtu.be/YXfA5O5Mr18" rel="noopener" target="_blank"><img alt="Podman Tutorial Zero to Hero | Full 1 Hour Course" data-origin="https://i.ytimg.com/vi_webp/YXfA5O5Mr18/sddefault.webp" src="https://i.ytimg.com/vi_webp/YXfA5O5Mr18/sddefault.webp"/></a></p><p><a href="https://youtu.be/gAkwW2tuIqE" rel="noopener" target="_blank"><img alt="Learn Docker in 7 Easy Steps - Full Beginner's Tutorial" data-origin="https://i.ytimg.com/vi_webp/gAkwW2tuIqE/sddefault.webp" src="https://i.ytimg.com/vi_webp/gAkwW2tuIqE/sddefault.webp"/></a></p><ul><li>Optional: For Windows, see <a href="https://youtu.be/5RQbdMn04Oc" rel="noopener" target="_blank">WSL 2 with Docker getting started</a></li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/github-actions">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">CI/CD: GitHub Actions</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/github-codespaces">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">DevContainers: GitHub Codespaces</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

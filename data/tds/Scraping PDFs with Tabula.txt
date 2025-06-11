@@ -1,0 +1,24 @@
+<article class="markdown-section" id="main"><h2 id="scraping-pdfs-with-tabula"><a class="anchor" data-id="scraping-pdfs-with-tabula" href="#/scraping-pdfs-with-tabula?id=scraping-pdfs-with-tabula"><span>Scraping PDFs with Tabula</span></a></h2><p><a href="https://youtu.be/yDoKlKyxClQ" rel="noopener" target="_blank"><img alt="Scrape PDFs with Tabula Python library" data-origin="https://i.ytimg.com/vi_webp/yDoKlKyxClQ/sddefault.webp" src="https://i.ytimg.com/vi_webp/yDoKlKyxClQ/sddefault.webp"/></a></p><p>You’ll learn how to scrape tables from PDFs using the <code>tabula</code> Python library, covering:</p><ul><li><strong>Import Libraries</strong>: Use Beautiful Soup for URL parsing and Tabula for extracting tables from PDFs.</li><li><strong>Specify Save Location</strong>: Mount Google Drive to save scraped PDFs.</li><li><strong>Identify PDF URLs</strong>: Parse the given URL to identify and select all PDF links.</li><li><strong>Download PDFs</strong>: Loop through identified links, saving each PDF to the specified location.</li><li><strong>Extract Tables</strong>: Use Tabula to read tabular content from the downloaded PDFs.</li><li><strong>Control Extraction Area</strong>: Specify page and area coordinates to accurately extract tables, avoiding extraneous text.</li><li><strong>Save Extracted Data</strong>: Convert the extracted table data into structured formats like CSV for further analysis.</li></ul><p>Here are links and references:</p><ul><li><a href="https://colab.research.google.com/drive/102Fv2Ji0J4mvao3mCse52E7Th8bZiuyf" rel="noopener" target="_blank">PDF Scraping - Notebook</a></li><li>Learn about the <a href="https://tabula-py.readthedocs.io/en/latest/tabula.html" rel="noopener" target="_blank"><code>tabula</code> package</a></li><li>Learn about the <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html" rel="noopener" target="_blank"><code>pandas</code> package</a>. <a href="https://youtu.be/vmEHCJofslg" rel="noopener" target="_blank">Video</a></li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/wikipedia-data-with-python">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Wikipedia Data with Python</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/convert-pdfs-to-markdown">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Convert PDFs to Markdown</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

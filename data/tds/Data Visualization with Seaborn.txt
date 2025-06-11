@@ -1,0 +1,24 @@
+<article class="markdown-section" id="main"><h2 id="data-visualization-with-seaborn"><a class="anchor" data-id="data-visualization-with-seaborn" href="#/data-visualization-with-seaborn?id=data-visualization-with-seaborn"><span>Data Visualization with Seaborn</span></a></h2><p><a href="https://seaborn.pydata.org/" rel="noopener" target="_blank">Seaborn</a> is a data visualization library for Python. It’s based on Matplotlib but a bit easier to use, and a bit prettier.</p><p><a href="https://youtu.be/6GUZXDef2U0" rel="noopener" target="_blank"><img alt="Seaborn Tutorial : Seaborn Full Course" data-origin="https://i.ytimg.com/vi_webp/6GUZXDef2U0/sddefault.webp" src="https://i.ytimg.com/vi_webp/6GUZXDef2U0/sddefault.webp"/></a></p><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/visualizing-charts-with-excel">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Visualizing Charts with Excel</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/data-visualization-with-chatgpt">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Data Visualization with ChatGPT</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

@@ -1,0 +1,24 @@
+<article class="markdown-section" id="main"><h2 id="forecasting-with-excel"><a class="anchor" data-id="forecasting-with-excel" href="#/forecasting-with-excel?id=forecasting-with-excel"><span>Forecasting with Excel</span></a></h2><p><a href="https://youtu.be/QrTimmxwZw4" rel="noopener" target="_blank"><img alt="Forecasting with Excel" data-origin="https://i.ytimg.com/vi_webp/QrTimmxwZw4/sddefault.webp" src="https://i.ytimg.com/vi_webp/QrTimmxwZw4/sddefault.webp"/></a></p><p>Here are links used in the video:</p><ul><li><a href="https://support.microsoft.com/en-us/office/forecast-and-forecast-linear-functions-50ca49c9-7b40-4892-94e4-7ad38bbeda99" rel="noopener" target="_blank">FORECAST reference</a></li><li><a href="https://support.microsoft.com/en-us/office/forecast-ets-function-15389b8b-677e-4fbd-bd95-21d464333f41" rel="noopener" target="_blank">FORECAST.ETS reference</a></li><li><a href="https://docs.google.com/spreadsheets/d/1iMFVPh8q9KgnfLwBeBMmX1GaFabP02FK/view" rel="noopener" target="_blank">Height-weight dataset</a> from <a href="https://www.kaggle.com/datasets/burnoutminer/heights-and-weights-dataset" rel="noopener" target="_blank">Kaggle</a></li><li><a href="https://docs.google.com/spreadsheets/d/1w2R0fHdLG5ZGW-papaK7wzWq_-WDArKC/view" rel="noopener" target="_blank">Traffic dataset</a> from <a href="https://www.kaggle.com/datasets/fedesoriano/traffic-prediction-dataset" rel="noopener" target="_blank">Kaggle</a></li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/regression-with-excel">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Regression with Excel</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/outlier-detection-with-excel">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Outlier Detection with Excel</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

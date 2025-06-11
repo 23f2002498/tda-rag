@@ -1,0 +1,37 @@
+<article class="markdown-section" id="main"><h2 id="static-hosting-github-pages"><a class="anchor" data-id="static-hosting-github-pages" href="#/github-pages?id=static-hosting-github-pages"><span>Static hosting: GitHub Pages</span></a></h2><p><a href="https://pages.github.com/" rel="noopener" target="_blank">GitHub Pages</a> is a free hosting service that turns your GitHub repository directly into a static website whenever you push it. This is useful for sharing analysis results, data science portfolios, project documentation, and more.</p><p>Common Operations:</p><pre class="language-bash" data-lang="bash" v-pre=""><code class="lang-bash language-bash"><span class="token comment"># Create a new GitHub repo</span>
+<span class="token function">mkdir</span> my-site
+<span class="token builtin class-name">cd</span> my-site
+<span class="token function">git</span> init
+
+<span class="token comment"># Add your static content</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"&lt;h1&gt;My Site&lt;/h1&gt;"</span> <span class="token operator">&gt;</span> index.html
+
+<span class="token comment"># Push to GitHub</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"feat(pages): initial commit"</span>
+<span class="token function">git</span> push origin main
+
+<span class="token comment"># Enable GitHub Pages from the main branch on the repo settings page</span></code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Best Practices:</p><ol><li><strong>Keep it small</strong><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Performance/Multimedia" rel="noopener" target="_blank">Optimize images</a>. Prefer SVG over WEBP over 8-bit PNG.</li><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preload" rel="noopener" target="_blank">Preload</a> critical assets like stylesheets</li><li>Avoid committing large files like datasets, videos, etc. directly. Explore <a href="https://git-lfs.github.com/" rel="noopener" target="_blank">Git LFS</a> instead.</li></ul></li></ol><p>Tools:</p><ul><li><a href="https://desktop.github.com/" rel="noopener" target="_blank">GitHub Desktop</a>: GUI for Git operations</li><li><a href="https://cli.github.com/" rel="noopener" target="_blank">GitHub CLI</a>: Command line interface</li><li><a href="https://github.com/features/actions" rel="noopener" target="_blank">GitHub Actions</a>: Automation</li></ul><p><a href="https://youtube.com/shorts/WqOXxoGSpbs" rel="noopener" target="_blank"><img alt="Host a website using GitHub Pages" data-origin="https://i.ytimg.com/vi_webp/WqOXxoGSpbs/sddefault.webp" src="https://i.ytimg.com/vi_webp/WqOXxoGSpbs/sddefault.webp"/></a></p><p><a href="https://youtu.be/sT_zXIX3ZA0" rel="noopener" target="_blank"><img alt="Deploy your first GitHub Pages Website" data-origin="https://i.ytimg.com/vi_webp/sT_zXIX3ZA0/sddefault.webp" src="https://i.ytimg.com/vi_webp/sT_zXIX3ZA0/sddefault.webp"/></a></p><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/image-compression">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Images: Compression</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/colab">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Notebooks: Google Colab</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

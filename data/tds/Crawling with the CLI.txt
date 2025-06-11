@@ -1,0 +1,54 @@
+<article class="markdown-section" id="main"><h2 id="crawling-with-the-cli"><a class="anchor" data-id="crawling-with-the-cli" href="#/crawling-cli?id=crawling-with-the-cli"><span>Crawling with the CLI</span></a></h2><p>Since websites are a common source of data, we often download entire websites (crawling) and then process them offline.</p><p>Web crawling is essential in many data-driven scenarios:</p><ul><li><strong>Data mining and analysis</strong>: Gathering structured data from multiple pages for market research, competitive analysis, or academic research</li><li><strong>Content archiving</strong>: Creating offline copies of websites for preservation or backup purposes</li><li><strong>SEO analysis</strong>: Analyzing site structure, metadata, and content to improve search rankings</li><li><strong>Legal compliance</strong>: Capturing website content for regulatory or compliance documentation</li><li><strong>Website migration</strong>: Creating a complete copy before moving to a new platform or design</li><li><strong>Offline access</strong>: Downloading educational resources, documentation, or reference materials for use without internet connection</li></ul><p>The most commonly used tool for fetching websites is <a href="https://www.gnu.org/software/wget/" rel="noopener" target="_blank"><code>wget</code></a>. It is pre-installed in many UNIX distributions and easy to install.</p><p><a href="https://youtu.be/pLfH5TZBGXo" rel="noopener" target="_blank"><img alt="Scraping Websites using Wget (8 min)" data-origin="https://i.ytimg.com/vi/pLfH5TZBGXo/sddefault.jpg" src="https://i.ytimg.com/vi/pLfH5TZBGXo/sddefault.jpg"/></a></p><p>To crawl the <a href="https://study.iitm.ac.in/ds/" rel="noopener" target="_blank">IIT Madras Data Science Program website</a> for example, you could run:</p><pre class="language-bash" data-lang="bash" v-pre=""><code class="lang-bash language-bash"><span class="token function">wget</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--recursive</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--level</span><span class="token operator">=</span><span class="token number">3</span> <span class="token punctuation">\</span>
+  --no-parent <span class="token punctuation">\</span>
+  --convert-links <span class="token punctuation">\</span>
+  --adjust-extension <span class="token punctuation">\</span>
+  <span class="token parameter variable">--compression</span><span class="token operator">=</span>auto <span class="token punctuation">\</span>
+  <span class="token parameter variable">--accept</span> html,htm <span class="token punctuation">\</span>
+  --directory-prefix<span class="token operator">=</span>./ds <span class="token punctuation">\</span>
+  https://study.iitm.ac.in/ds/</code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Here’s what each option does:</p><ul><li><code>--recursive</code>: Enables recursive downloading (following links)</li><li><code>--level=3</code>: Limits recursion depth to 3 levels from the initial URL</li><li><code>--no-parent</code>: Restricts crawling to only URLs below the initial directory</li><li><code>--convert-links</code>: Converts all links in downloaded documents to work locally</li><li><code>--adjust-extension</code>: Adds proper extensions to files (.html, .jpg, etc.) based on MIME types</li><li><code>--compression=auto</code>: Automatically handles compressed content (gzip, deflate)</li><li><code>--accept html,htm</code>: Only downloads files with these extensions</li><li><code>--directory-prefix=./ds</code>: Saves all downloaded files to the specified directory</li></ul><p><a href="https://gitlab.com/gnuwget/wget2" rel="noopener" target="_blank">wget2</a> is a better version of <code>wget</code> and supports HTTP2, parallel connections, and only updates modified sites. The syntax is (mostly) the same.</p><pre class="language-bash" data-lang="bash" v-pre=""><code class="lang-bash language-bash">wget2 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--recursive</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--level</span><span class="token operator">=</span><span class="token number">3</span> <span class="token punctuation">\</span>
+  --no-parent <span class="token punctuation">\</span>
+  --convert-links <span class="token punctuation">\</span>
+  --adjust-extension <span class="token punctuation">\</span>
+  <span class="token parameter variable">--compression</span><span class="token operator">=</span>auto <span class="token punctuation">\</span>
+  <span class="token parameter variable">--accept</span> html,htm <span class="token punctuation">\</span>
+  --directory-prefix<span class="token operator">=</span>./ds <span class="token punctuation">\</span>
+  https://study.iitm.ac.in/ds/</code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>There are popular free and open-source alternatives to Wget:</p><h3 id="wpull"><a class="anchor" data-id="wpull" href="#/crawling-cli?id=wpull"><span>Wpull</span></a></h3><p><a href="https://github.com/ArchiveTeam/wpull" rel="noopener" target="_blank">Wpull</a> is a wget‐compatible Python crawler that supports on-disk resumption, WARC output, and PhantomJS integration.</p><pre class="language-bash" data-lang="bash" v-pre=""><code class="lang-bash language-bash">uvx wpull <span class="token punctuation">\</span>
+  <span class="token parameter variable">--recursive</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--level</span><span class="token operator">=</span><span class="token number">3</span> <span class="token punctuation">\</span>
+  --no-parent <span class="token punctuation">\</span>
+  --convert-links <span class="token punctuation">\</span>
+  --adjust-extension <span class="token punctuation">\</span>
+  <span class="token parameter variable">--compression</span><span class="token operator">=</span>auto <span class="token punctuation">\</span>
+  <span class="token parameter variable">--accept</span> html,htm <span class="token punctuation">\</span>
+  --directory-prefix<span class="token operator">=</span>./ds <span class="token punctuation">\</span>
+  https://study.iitm.ac.in/ds/</code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><h3 id="httrack"><a class="anchor" data-id="httrack" href="#/crawling-cli?id=httrack"><span>HTTrack</span></a></h3><p><a href="https://www.httrack.com/html/fcguide.html" rel="noopener" target="_blank">HTTrack</a> is dedicated website‐mirroring tool with rich filtering and link‐conversion options.</p><pre class="language-bash" data-lang="bash" v-pre=""><code class="lang-bash language-bash">httrack <span class="token string">"https://study.iitm.ac.in/ds/"</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">-O</span> <span class="token string">"./ds"</span> <span class="token punctuation">\</span>
+  <span class="token string">"+*.study.iitm.ac.in/ds/*"</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">-r3</span></code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><h3 id="robotstxt"><a class="anchor" data-id="robotstxt" href="#/crawling-cli?id=robotstxt"><span>Robots.txt</span></a></h3><p><code>robots.txt</code> is a standard file found in a website’s root directory that specifies which parts of the site should not be accessed by web crawlers. It’s part of the Robots Exclusion Protocol, an ethical standard for web crawling.</p><p><strong>Why it’s important</strong>:</p><ul><li><strong>Server load protection</strong>: Prevents excessive traffic that could overload servers</li><li><strong>Privacy protection</strong>: Keeps sensitive or private content from being indexed</li><li><strong>Legal compliance</strong>: Respects website owners’ rights to control access to their content</li><li><strong>Ethical web citizenship</strong>: Shows respect for website administrators’ wishes</li></ul><p><strong>How to override robots.txt restrictions</strong>:</p><ul><li><strong>wget, wget2</strong>: Use <code>-e robots=off</code></li><li><strong>httrack</strong>: Use <code>-s0</code></li><li><strong>wpull</strong>: Use <code>--no-robots</code></li></ul><p><strong>When to override robots.txt (use with discretion)</strong>:</p><p>Only bypass <code>robots.txt</code> when:</p><ul><li>You have explicit permission from the website owner</li><li>You’re crawling your own website</li><li>The content is publicly accessible and your crawling won’t cause server issues</li><li>You’re conducting authorized security testing</li></ul><p>Remember that bypassing <code>robots.txt</code> without legitimate reason may:</p><ul><li>Violate terms of service</li><li>Lead to IP banning</li><li>Result in legal consequences in some jurisdictions</li><li>Cause reputation damage to your organization</li></ul><p>Always use the minimum necessary crawling speed and scope, and consider contacting website administrators for permission when in doubt.</p><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/scraping-with-google-sheets">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Scraping with Google Sheets</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/bbc-weather-api-with-python">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">BBC Weather API with Python</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

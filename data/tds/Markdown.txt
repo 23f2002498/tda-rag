@@ -1,0 +1,55 @@
+<article class="markdown-section" id="main"><h2 id="documentation-markdown"><a class="anchor" data-id="documentation-markdown" href="#/markdown?id=documentation-markdown"><span>Documentation: Markdown</span></a></h2><p>Markdown is a lightweight markup language for creating formatted text using a plain-text editor. It’s the standard for documentation in software projects and data science notebooks.</p><p>Watch this introduction to Markdown (19 min):</p><p><a href="https://youtu.be/HUBNt18RFbo" rel="noopener" target="_blank"><img alt="Markdown Crash Course (19 min)" data-origin="https://i.ytimg.com/vi_webp/HUBNt18RFbo/sddefault.webp" src="https://i.ytimg.com/vi_webp/HUBNt18RFbo/sddefault.webp"/></a></p><p>Common Markdown syntax:</p><pre class="language-" data-lang="" v-pre=""><code class="lang- language-"># Heading 1
+## Heading 2
+
+**bold** and *italic*
+
+- Bullet point
+- Another point
+  - Nested point
+
+1. Numbered list
+2. Second item
+
+[Link text](https://url.com)
+![Image alt](image.jpg)
+
+```python
+# Code block
+def hello():
+    print("Hello")
+```
+
+&gt; Blockquote</code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>There is also a <a href="https://github.github.com/gfm/" rel="noopener" target="_blank">GitHub Flavored Markdown</a> standard which is popular. This includes extensions like:</p><pre class="language-" data-lang="" v-pre=""><code class="lang- language-">- [ ] Incomplete task
+- [x] Completed task
+
+~~Strikethrough~~
+
+Tables:
+
+| Column 1 | Column 2 |
+|----------|----------|
+| Cell 1   | Cell 2   |
+</code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Tools for working with Markdown:</p><ul><li><a href="https://pypi.org/project/markdown2/" rel="noopener" target="_blank">markdown2</a>: Python library to convert Markdown to HTML</li><li><a href="https://github.com/DavidAnson/markdownlint" rel="noopener" target="_blank">markdownlint</a>: Linting</li><li><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one" rel="noopener" target="_blank">Markdown All in One</a>: VS Code extension</li><li><a href="https://pandoc.org/" rel="noopener" target="_blank">pandoc</a>: Convert between formats</li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/deployment-tools">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">2. Deployment Tools</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/image-compression">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Images: Compression</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

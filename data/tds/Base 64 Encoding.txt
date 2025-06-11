@@ -1,0 +1,43 @@
+<article class="markdown-section" id="main"><h1 id="base-64-encoding"><a class="anchor" data-id="base-64-encoding" href="#/base64-encoding?id=base-64-encoding"><span>Base 64 Encoding</span></a></h1><p>Base64 is a method to convert binary data into ASCII text. It’s essential when you need to transmit binary data through text-only channels or embed binary content in text formats.</p><p>Watch this quick explanation of how Base64 works (3 min):</p><p><a href="https://youtu.be/8qkxeZmKmOY" rel="noopener" target="_blank"><img alt="What is Base64? (3 min)" data-origin="https://i.ytimg.com/vi_webp/8qkxeZmKmOY/sddefault.webp" src="https://i.ytimg.com/vi_webp/8qkxeZmKmOY/sddefault.webp"/></a></p><p>Here’s how it works:</p><ul><li>It takes 3 bytes (24 bits) and converts them into 4 ASCII characters</li><li>… using 64 characters: A-Z, a-z, 0-9, + and / (padding with <code>=</code> to make the length a multiple of 4)</li><li>There’s a URL-safe variant of Base64 that replaces + and / with - and _ to avoid issues in URLs</li><li>Base64 adds ~33% overhead (since every 3 bytes becomes 4 characters)</li></ul><p>Common Python operations with Base64:</p><pre class="language-python" data-lang="python" v-pre=""><code class="lang-python language-python"><span class="token keyword">import</span> base64
+
+<span class="token comment"># Basic encoding/decoding</span>
+text <span class="token operator">=</span> <span class="token string">"Hello, World!"</span>
+<span class="token comment"># Convert text to base64</span>
+encoded <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64encode<span class="token punctuation">(</span>text<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># SGVsbG8sIFdvcmxkIQ==</span>
+<span class="token comment"># Convert base64 back to text</span>
+decoded <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64decode<span class="token punctuation">(</span>encoded<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token comment"># Hello, World!</span>
+<span class="token comment"># Convert to URL-safe base64</span>
+url_safe <span class="token operator">=</span> base64<span class="token punctuation">.</span>urlsafe_b64encode<span class="token punctuation">(</span>text<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># SGVsbG8sIFdvcmxkIQ==</span>
+
+<span class="token comment"># Working with binary files (e.g., images)</span>
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'image.png'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    binary_data <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    image_b64 <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64encode<span class="token punctuation">(</span>binary_data<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Data URI example (embed images in HTML/CSS)</span>
+data_uri <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"data:image/png;base64,</span><span class="token interpolation"><span class="token punctuation">{</span>image_b64<span class="token punctuation">}</span></span><span class="token string">"</span></span></code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Data URIs allow embedding binary data directly in HTML/CSS. This reduces the number of HTTP requests and also works offline. But it increases the file size.</p><p>For example, here’s an SVG image embedded as a data URI:</p><pre class="language-html" data-lang="html" v-pre=""><code class="lang-html language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiMyNTYzZWIiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJtMTYgNyAyIDcgNyAyLTcgMi0yIDctMi03LTctMiA3LTJaIi8+PC9zdmc+<span class="token punctuation">"</span></span>
+<span class="token punctuation">/&gt;</span></span></code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Base64 is used in many places:</p><ul><li>JSON: Encoding binary data in JSON payloads</li><li>Email: MIME attachments encoding</li><li>Auth: HTTP Basic Authentication headers</li><li>JWT: Encoding tokens in web authentication</li><li>SSL/TLS: PEM certificate format</li><li>SAML: Encoding assertions in SSO</li><li>Git: Encoding binary files in patches</li></ul><p>Tools for working with Base64:</p><ul><li><a href="https://www.base64decode.org/" rel="noopener" target="_blank">Base64 Decoder/Encoder</a> for online encoding/decoding</li><li><a href="https://dopiaza.org/tools/datauri/index.php" rel="noopener" target="_blank">data: URI Generator</a> converts files to Data URIs</li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/llm-text-extraction">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">LLM Text Extraction</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/vision-models">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Vision Models</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

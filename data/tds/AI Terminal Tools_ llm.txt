@@ -1,0 +1,46 @@
+<article class="markdown-section" id="main"><h2 id="llm-cli-llm"><a class="anchor" data-id="llm-cli-llm" href="#/llm?id=llm-cli-llm"><span>LLM CLI: llm</span></a></h2><p><a href="https://pypi.org/project/llm" rel="noopener" target="_blank"><code>llm</code></a> is a command-line utility for interacting with large language models—simplifying prompts, managing models and plugins, logging every conversation, and extracting structured data for pipelines.</p><p><a href="https://youtu.be/QUXQNi6jQ30?t=100" rel="noopener" target="_blank"><img alt="Language models on the command-line w/ Simon Willison" data-origin="https://i.ytimg.com/vi_webp/QUXQNi6jQ30/sddefault.webp" src="https://i.ytimg.com/vi_webp/QUXQNi6jQ30/sddefault.webp"/></a></p><h3 id="basic-usage"><a class="anchor" data-id="basic-usage" href="#/llm?id=basic-usage"><span>Basic Usage</span></a></h3><p><a href="https://github.com/simonw/llm#installation" rel="noopener" target="_blank">Install llm</a>. Then set up your <a href="https://platform.openai.com/api-keys" rel="noopener" target="_blank"><code>OPENAI_API_KEY</code></a> environment variable. See <a href="https://github.com/simonw/llm?tab=readme-ov-file#getting-started" rel="noopener" target="_blank">Getting started</a>.</p><p><strong>TDS Students</strong>: See <a href="#/large-language-models">Large Language Models</a> for instructions on how to get and use <code>OPENAI_API_KEY</code>.</p><pre class="language-bash" data-lang="bash" v-pre=""><code class="lang-bash language-bash"><span class="token comment"># Run a simple prompt</span>
+llm <span class="token string">'five great names for a pet pelican'</span>
+
+<span class="token comment"># Continue a conversation</span>
+llm <span class="token parameter variable">-c</span> <span class="token string">'now do walruses'</span>
+
+<span class="token comment"># Start a memory-aware chat session</span>
+llm chat
+
+<span class="token comment"># Specify a model</span>
+llm <span class="token parameter variable">-m</span> gpt-4.1-nano <span class="token string">'Summarize tomorrow’s meeting agenda'</span>
+
+<span class="token comment"># Extract JSON output</span>
+llm <span class="token string">'List the top 5 Python viz libraries with descriptions'</span> <span class="token punctuation">\</span>
+  --schema-multi <span class="token string">'name,description'</span></code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Or use llm without installation using <a href="#/uv"><code>uvx</code></a>:</p><pre class="language-bash" data-lang="bash" v-pre=""><code class="lang-bash language-bash"><span class="token comment"># Run llm via uvx without any prior installation</span>
+uvx llm <span class="token string">'Translate "Hello, world" into Japanese'</span>
+
+<span class="token comment"># Specify a model</span>
+uvx llm <span class="token parameter variable">-m</span> gpt-4.1-nano <span class="token string">'Draft a 200-word blog post on data ethics'</span>
+
+<span class="token comment"># Use structured JSON output</span>
+uvx llm <span class="token string">'List the top 5 programming languages in 2025 with their release years'</span> <span class="token punctuation">\</span>
+  --schema-multi <span class="token string">'rank,language,release_year'</span></code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><h3 id="key-features"><a class="anchor" data-id="key-features" href="#/llm?id=key-features"><span>Key Features</span></a></h3><ul><li><strong>Interactive prompts</strong>: <code>llm '…'</code> — Fast shell access to any LLM.</li><li><strong>Conversational flow</strong>: <code>-c '…'</code> — Continue context across prompts.</li><li><strong>Model switching</strong>: <code>-m MODEL</code> — Use OpenAI, Anthropic, local models, and more.</li><li><strong>Structured output</strong>: <code>llm json</code> — Produce JSON for automation.</li><li><strong>Logging &amp; history</strong>: <code>llm logs path</code> — Persist every prompt/response in SQLite.</li><li><strong>Web UI</strong>: <code>datasette "$(llm logs path)"</code> — Browse your entire history with Datasette.</li><li><strong>Persistent chat</strong>: <code>llm chat</code> — Keep the model in memory across multiple interactions.</li><li><strong>Plugin ecosystem</strong>: <code>llm install PLUGIN</code> — Add support for new models, data sources, or workflows. (<a href="https://simonwillison.net/2024/Jun/17/cli-language-models/?utm_source=chatgpt.com" rel="noopener" target="_blank">Language models on the command-line - Simon Willison’s Weblog</a>)</li></ul><h3 id="practical-uses"><a class="anchor" data-id="practical-uses" href="#/llm?id=practical-uses"><span>Practical Uses</span></a></h3><ul><li><strong>Automated coding</strong>. Generate code scaffolding, review helpers, or utilities on demand. For example, after running<code>llm install llm-cmd</code>, run <code>llm cmd 'Undo the last git commit'</code>. Inspired by <a href="https://simonwillison.net/2025/Mar/11/using-llms-for-code/" rel="noopener" target="_blank">Simon’s post on using LLMs for rapid tool building</a>.</li><li><strong>Transcript processing</strong>. Summarize YouTube or podcast transcripts using Gemini. See <a href="https://www.macstories.net/mac/llm-youtube-transcripts-with-claude-and-gemini-in-shortcuts/" rel="noopener" target="_blank">Putting Gemini 2.5 Pro through its paces</a>.</li><li><strong>Commit messages</strong>. Turn diffs into descriptive commit messages, e.g. <code>git diff | llm 'Write a concise git commit message explaining these changes'</code>. \</li><li><strong>Data extraction</strong>. Convert free-text into structured JSON for automation. <a href="https://simonwillison.net/2025/Feb/28/llm-schemas/" rel="noopener" target="_blank">Structured data extraction from unstructured content using LLM schemas</a>.</li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/bash">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Terminal: Bash</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/spreadsheets">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Spreadsheet: Excel, Google Sheets</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

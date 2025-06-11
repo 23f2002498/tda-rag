@@ -1,0 +1,38 @@
+<article class="markdown-section" id="main"><h2 id="data-transformation-with-dbt"><a class="anchor" data-id="data-transformation-with-dbt" href="#/dbt?id=data-transformation-with-dbt"><span>Data Transformation with dbt</span></a></h2><p><a href="https://youtu.be/5rNquRnNb4E" rel="noopener" target="_blank"><img alt="Data Transformation with dbt" data-origin="https://i.ytimg.com/vi_webp/5rNquRnNb4E/sddefault.webp" src="https://i.ytimg.com/vi_webp/5rNquRnNb4E/sddefault.webp"/></a></p><p>You’ll learn how to transform data using dbt (data build tool), covering:</p><ul><li><strong>dbt Fundamentals</strong>: Understand what dbt is and how it brings software engineering practices to data transformation</li><li><strong>Project Setup</strong>: Learn how to initialize a dbt project, configure your warehouse connection, and structure your models</li><li><strong>Models and Materialization</strong>: Create your first dbt models and understand different materialization strategies (view, table, incremental)</li><li><strong>Testing and Documentation</strong>: Implement data quality tests and auto-generate documentation for your data models</li><li><strong>Jinja Templating</strong>: Use Jinja for dynamic SQL generation, making your transformations more maintainable and reusable</li><li><strong>References and Dependencies</strong>: Learn how to reference other models and manage model dependencies</li><li><strong>Sources and Seeds</strong>: Configure source data connections and manage static reference data</li><li><strong>Macros and Packages</strong>: Create reusable macros and leverage community packages to extend functionality</li><li><strong>Incremental Models</strong>: Optimize performance by only processing new or changed data</li><li><strong>Deployment and Orchestration</strong>: Set up dbt Cloud or integrate with Airflow for production deployment</li></ul><p>Here’s a minimal dbt model example, <code>models/staging/stg_customers.sql</code>:</p><pre class="language-sql" data-lang="sql" v-pre=""><code class="lang-sql language-sql"><span class="token keyword">with</span> source <span class="token keyword">as</span> <span class="token punctuation">(</span>
+    <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> {{ source<span class="token punctuation">(</span><span class="token string">'raw'</span><span class="token punctuation">,</span> <span class="token string">'customers'</span><span class="token punctuation">)</span> }}
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+renamed <span class="token keyword">as</span> <span class="token punctuation">(</span>
+    <span class="token keyword">select</span>
+        id <span class="token keyword">as</span> customer_id<span class="token punctuation">,</span>
+        first_name<span class="token punctuation">,</span>
+        last_name<span class="token punctuation">,</span>
+        email<span class="token punctuation">,</span>
+        created_at
+    <span class="token keyword">from</span> source
+<span class="token punctuation">)</span>
+
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> renamed</code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Tools and Resources:</p><ul><li><a href="https://github.com/dbt-labs/dbt-core" rel="noopener" target="_blank">dbt Core</a> - The open-source transformation tool</li><li><a href="https://www.getdbt.com/product/dbt-cloud" rel="noopener" target="_blank">dbt Cloud</a> - Hosted platform for running dbt</li><li><a href="https://hub.getdbt.com/" rel="noopener" target="_blank">dbt Packages</a> - Reusable modules from the community</li><li><a href="https://docs.getdbt.com/" rel="noopener" target="_blank">dbt Documentation</a> - Comprehensive guides and references</li><li><a href="https://github.com/dbt-labs/jaffle_shop" rel="noopener" target="_blank">Jaffle Shop</a> - Example dbt project for learning</li><li><a href="https://www.getdbt.com/community/" rel="noopener" target="_blank">dbt Slack Community</a> - Active community for support and discussions</li></ul><p>Watch this dbt Fundamentals Course (90 min):</p><p><a href="https://youtu.be/5rNquRnNb4E" rel="noopener" target="_blank"><img alt="dbt Fundamentals Course" data-origin="https://i.ytimg.com/vi_webp/5rNquRnNb4E/sddefault.webp" src="https://i.ytimg.com/vi_webp/5rNquRnNb4E/sddefault.webp"/></a></p><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/parsing-json">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Parsing JSON</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/transforming-images">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Transforming Images</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

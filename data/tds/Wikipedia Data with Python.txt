@@ -1,0 +1,24 @@
+<article class="markdown-section" id="main"><h2 id="wikipedia-data-with-python"><a class="anchor" data-id="wikipedia-data-with-python" href="#/wikipedia-data-with-python?id=wikipedia-data-with-python"><span>Wikipedia Data with Python</span></a></h2><p><a href="https://youtu.be/b6puvm-QEY0" rel="noopener" target="_blank"><img alt="Wikipedia data with Wikimedia Python library" data-origin="https://i.ytimg.com/vi_webp/b6puvm-QEY0/sddefault.webp" src="https://i.ytimg.com/vi_webp/b6puvm-QEY0/sddefault.webp"/></a></p><p>You’ll learn how to scrape data from Wikipedia using the <code>wikipedia</code> Python library, covering:</p><ul><li><strong>Installing and Importing</strong>: Use pip install to get the Wikipedia library and import it with import wikipedia as wk.</li><li><strong>Keyword Search</strong>: Use the search function to find Wikipedia pages containing a specific keyword, limiting results with the results argument.</li><li><strong>Fetching Summaries</strong>: Use the summary function to get a concise summary of a Wikipedia page, limiting sentences with the sentences argument.</li><li><strong>Retrieving Full Pages</strong>: Use the page function to obtain the full content of a Wikipedia page, including sections and references.</li><li><strong>Accessing URLs</strong>: Retrieve the URL of a Wikipedia page using the url attribute of the page object.</li><li><strong>Extracting References</strong>: Use the references attribute to get all reference links from a Wikipedia page.</li><li><strong>Fetching Images</strong>: Access all images on a Wikipedia page via the images attribute, which returns a list of image URLs.</li><li><strong>Extracting Tables</strong>: Use the pandas.read_html function to extract tables from the HTML content of a Wikipedia page, being mindful of table indices.</li></ul><p>Here are links and references:</p><ul><li><a href="https://colab.research.google.com/drive/1-w8Jo6xcQs2jK0NxNddPW4HVCZhXmTBe" rel="noopener" target="_blank">Wikipedia Library - Notebook</a></li><li>Learn about the <a href="https://wikipedia.readthedocs.io/en/latest/" rel="noopener" target="_blank"><code>wikipedia</code> package</a></li></ul><p><strong>NOTE</strong>: Wikipedia is constantly edited. The page may be different now from when the video was recorded. Handle accordingly.</p><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/nominatim-api-with-python">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Nominatim API with Python</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/scraping-pdfs-with-tabula">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Scraping PDFs with Tabula</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

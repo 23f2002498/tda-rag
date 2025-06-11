@@ -1,0 +1,24 @@
+<article class="markdown-section" id="main"><h2 id="notebooks-google-colab"><a class="anchor" data-id="notebooks-google-colab" href="#/colab?id=notebooks-google-colab"><span>Notebooks: Google Colab</span></a></h2><p><a href="https://colab.research.google.com/" rel="noopener" target="_blank">Google Colab</a> is a free, cloud-based Jupyter notebook environment that’s become indispensable for data scientists and ML practitioners. It’s particularly valuable because it provides free access to GPUs and TPUs, and for easy sharing of code and execution results.</p><p>While Colab is excellent for prototyping and learning, its free tier has limitations - notebooks time out after 12 hours, and GPU access can be inconsistent.</p><p>Learn how to mount Google Drive for persistent storage, manage dependencies with <code>!pip install</code> commands, as these are common pain points when getting started.</p><p><a href="https://youtu.be/inN8seMm7UI" rel="noopener" target="_blank"><img alt="Get started with Google Colaboratory (3 min)" data-origin="https://i.ytimg.com/vi_webp/inN8seMm7UI/sddefault.webp" src="https://i.ytimg.com/vi_webp/inN8seMm7UI/sddefault.webp"/></a></p><ul><li><a href="https://youtu.be/rNgswRZ2C1Y" rel="noopener" target="_blank">Google Colab features you may have missed</a></li><li><a href="https://youtu.be/8HvugBq5NKg" rel="noopener" target="_blank">How to mount Google Drive to Google Colab</a></li><li><a href="https://youtu.be/tCYSce6l8gA" rel="noopener" target="_blank">How to take advantage of GPUs and TPUs for your ML project</a></li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/github-pages">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Static hosting: GitHub Pages</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/vercel">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Serverless hosting: Vercel</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

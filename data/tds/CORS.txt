@@ -1,0 +1,50 @@
+<article class="markdown-section" id="main"><h2 id="cors-cross-origin-resource-sharing"><a class="anchor" data-id="cors-cross-origin-resource-sharing" href="#/cors?id=cors-cross-origin-resource-sharing"><span>CORS: Cross-Origin Resource Sharing</span></a></h2><p>CORS (Cross-Origin Resource Sharing) is a security mechanism that controls how web browsers handle requests between different origins (domains, protocols, or ports). Data scientists need CORS for APIs serving data or analysis to a browser on a different domain.</p><p>Watch this practical explanation of CORS (3 min):</p><p><a href="https://youtu.be/4KHiSt0oLJ0" rel="noopener" target="_blank"><img alt="CORS in 100 Seconds" data-origin="https://i.ytimg.com/vi_webp/4KHiSt0oLJ0/sddefault.webp" src="https://i.ytimg.com/vi_webp/4KHiSt0oLJ0/sddefault.webp"/></a></p><p>Key CORS concepts:</p><ul><li><strong>Same-Origin Policy</strong>: Browsers block requests between different origins by default</li><li><strong>CORS Headers</strong>: Server responses must include specific headers to allow cross-origin requests</li><li><strong>Preflight Requests</strong>: Browsers send OPTIONS requests to check if the actual request is allowed</li><li><strong>Credentials</strong>: Special handling required for requests with cookies or authentication</li></ul><p>If you’re exposing your API with a GET request publicly, the only thing you need to do is set the HTTP header <code>Access-Control-Allow-Origin: *</code>.</p><p>Here are other common CORS headers:</p><pre class="language-http" data-lang="http" v-pre=""><code class="lang-http language-http">Access-Control-Allow-Origin: https://example.com
+Access-Control-Allow-Methods: GET, POST, PUT, DELETE
+Access-Control-Allow-Headers: Content-Type, Authorization
+Access-Control-Allow-Credentials: true</code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>To implement CORS in FastAPI, use the <a href="https://fastapi.tiangolo.com/tutorial/cors/" rel="noopener" target="_blank"><code>CORSMiddleware</code> middleware</a>:</p><pre class="language-python" data-lang="python" v-pre=""><code class="lang-python language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
+<span class="token keyword">from</span> fastapi<span class="token punctuation">.</span>middleware<span class="token punctuation">.</span>cors <span class="token keyword">import</span> CORSMiddleware
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span>add_middleware<span class="token punctuation">(</span>CORSMiddleware<span class="token punctuation">,</span> allow_origins<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"*"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># Allow GET requests from all origins</span>
+<span class="token comment"># Or, provide more granular control:</span>
+app<span class="token punctuation">.</span>add_middleware<span class="token punctuation">(</span>
+    CORSMiddleware<span class="token punctuation">,</span>
+    allow_origins<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"https://example.com"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment"># Allow a specific domain</span>
+    allow_credentials<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>  <span class="token comment"># Allow cookies</span>
+    allow_methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"GET"</span><span class="token punctuation">,</span> <span class="token string">"POST"</span><span class="token punctuation">,</span> <span class="token string">"PUT"</span><span class="token punctuation">,</span> <span class="token string">"DELETE"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment"># Allow specific methods</span>
+    allow_headers<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"*"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment"># Allow all headers</span>
+<span class="token punctuation">)</span></code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Testing CORS with JavaScript:</p><pre class="language-javascript" data-lang="javascript" v-pre=""><code class="lang-javascript language-javascript"><span class="token comment">// Simple request</span>
+<span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">"https://api.example.com/data"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">method</span><span class="token operator">:</span> <span class="token string">"GET"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">headers</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token string-property property">"Content-Type"</span><span class="token operator">:</span> <span class="token string">"application/json"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Request with credentials</span>
+<span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">"https://api.example.com/data"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">credentials</span><span class="token operator">:</span> <span class="token string">"include"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">headers</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token string-property property">"Content-Type"</span><span class="token operator">:</span> <span class="token string">"application/json"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Useful CORS debugging tools:</p><ul><li><a href="https://cors-test.codehappy.dev/" rel="noopener" target="_blank">CORS Checker</a>: Test CORS configurations</li><li>Browser DevTools Network tab: Inspect CORS headers and preflight requests</li><li><a href="https://github.com/Rob--W/cors-anywhere" rel="noopener" target="_blank">cors-anywhere</a>: CORS proxy for development</li></ul><p>Common CORS errors and solutions:</p><ul><li><code>No 'Access-Control-Allow-Origin' header</code>: Configure server to send proper CORS headers</li><li><code>Request header field not allowed</code>: Add required headers to <code>Access-Control-Allow-Headers</code></li><li><code>Credentials flag</code>: Set both <code>credentials: 'include'</code> and <code>Access-Control-Allow-Credentials: true</code></li><li><code>Wild card error</code>: Cannot use <code>*</code> with credentials; specify exact origins</li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/ngrok">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Tunneling: ngrok</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/rest-apis">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">REST APIs</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

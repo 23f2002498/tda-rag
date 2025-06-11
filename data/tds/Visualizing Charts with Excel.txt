@@ -1,0 +1,24 @@
+<article class="markdown-section" id="main"><h2 id="visualizing-charts-with-excel"><a class="anchor" data-id="visualizing-charts-with-excel" href="#/visualizing-charts-with-excel?id=visualizing-charts-with-excel"><span>Visualizing Charts with Excel</span></a></h2><p><a href="https://youtu.be/sORnCj52COw?t=1813s" rel="noopener" target="_blank"><img alt="Visualizing charts with Google Data StudioTools to visualize numbers" data-origin="https://i.ytimg.com/vi_webp/sORnCj52COw/sddefault.webp" src="https://i.ytimg.com/vi_webp/sORnCj52COw/sddefault.webp"/></a></p><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/visualizing-network-data-with-kumu">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Visualizing Network Data with Kumu</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/data-visualization-with-seaborn">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Data Visualization with Seaborn</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

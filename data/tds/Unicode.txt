@@ -1,0 +1,36 @@
+<article class="markdown-section" id="main"><h2 id="unicode"><a class="anchor" data-id="unicode" href="#/unicode?id=unicode"><span>Unicode</span></a></h2><p>Ever noticed when you copy-paste some text and get garbage symbols? Or see garbage when you load a CSV file? This video explains why. It covers how computers store text (called character encoding) and why it sometimes goes wonky.</p><p>Learn about ASCII (the original 7-bit encoding system that could only handle 128 characters), why that wasn’t enough for global languages, and how modern solutions like Unicode save the day by letting us use any character from any language.</p><p>Some programs try to guess encodings (sometimes badly!). A signature called BOM (Byte Order Mark)helps computers know exactly how to read text files correctly.</p><p>Learn how Unicode, UTF-8 and character encoding works. This is a common gotcha when building apps that handle international text - something bootcamps often skip but developers and data scientists regularly face in the real world.</p><p>Unicode is fundamental for data scientists working with international data. Here are key concepts you need to understand:</p><ul><li><strong>Character Encodings</strong>: Different ways to represent text in computers<ul><li>ASCII (7-bit): Limited to 128 characters, English-only</li><li>UTF-8: Variable-width encoding, backwards compatible with ASCII</li><li>UTF-16: Fixed-width encoding, used in Windows and Java</li><li>UTF-32: Fixed-width encoding, memory inefficient but simple</li></ul></li></ul><p>Common encoding issues you’ll encounter:</p><pre class="language-python" data-lang="python" v-pre=""><code class="lang-python language-python"><span class="token comment"># Reading files with explicit encoding</span>
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'file.txt'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    text <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Handling encoding errors</span>
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'data.csv'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">,</span> errors<span class="token operator">=</span><span class="token string">'replace'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Detecting file encoding</span>
+<span class="token keyword">import</span> chardet
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'unknown.txt'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    result <span class="token operator">=</span> chardet<span class="token punctuation">.</span>detect<span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">[</span><span class="token string">'encoding'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p><a href="https://youtu.be/jeIBNn5Y5fI" rel="noopener" target="_blank"><img alt="Code Pages, Character Encoding, Unicode, UTF-8 and the BOM - Computer Stuff They Didn't Teach You #2 (17 min)" data-origin="https://i.ytimg.com/vi_webp/jeIBNn5Y5fI/sddefault.webp" src="https://i.ytimg.com/vi_webp/jeIBNn5Y5fI/sddefault.webp"/></a></p><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/npx">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">JavaScript tools: npx</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/devtools">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Browser: DevTools</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

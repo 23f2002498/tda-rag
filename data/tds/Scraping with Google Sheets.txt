@@ -1,0 +1,24 @@
+<article class="markdown-section" id="main"><h2 id="scraping-with-google-sheets"><a class="anchor" data-id="scraping-with-google-sheets" href="#/scraping-with-google-sheets?id=scraping-with-google-sheets"><span>Scraping with Google Sheets</span></a></h2><p><a href="https://youtu.be/eYQEk7XJM7s" rel="noopener" target="_blank"><img alt="Scraping with Google Sheets" data-origin="https://i.ytimg.com/vi_webp/eYQEk7XJM7s/sddefault.webp" src="https://i.ytimg.com/vi_webp/eYQEk7XJM7s/sddefault.webp"/></a></p><p>You’ll learn how to <a href="https://support.google.com/docs/answer/3093339?hl=en" rel="noopener" target="_blank">import tables on the web using Google Sheets’s <code>=IMPORTHTML()</code> formula</a>, covering:</p><ul><li><strong>Import HTML Formula</strong>: Use =IMPORTHTML(URL, “query”, index) to fetch tables or lists from a web page.</li><li><strong>Granting Access</strong>: Allow access for formulas to fetch data from external sources.</li><li><strong>Checking Imported Data</strong>: Verify if the imported table matches the data on the web page.</li><li><strong>Handling Errors</strong>: Understand common issues and how to resolve them.</li><li><strong>Sorting Data</strong>: Copy imported data as values and sort it within Google Sheets.</li><li><strong>Freezing Rows</strong>: Use frozen rows to maintain headers while sorting.</li><li><strong>Live Formulas</strong>: Learn how web data updates automatically when the source changes.</li><li><strong>Other Import Functions</strong>: IMPORTXML, IMPORTFEED, IMPORTRANGE, and IMPORTDATA for advanced data fetching options.</li></ul><p>Here are links used in the video:</p><ul><li><a href="https://docs.google.com/spreadsheets/d/1Qp_YTh1-hJHxjMWE_GofkvLIKgEdKxb6NFImpId3z9o/view" rel="noopener" target="_blank">Google sheet used in the video</a></li><li><a href="https://support.google.com/docs/answer/3093339" rel="noopener" target="_blank"><code>IMPORTHTML()</code></a></li><li><a href="https://support.google.com/docs/answer/3093342" rel="noopener" target="_blank"><code>IMPORTXML()</code></a></li><li><a href="https://en.wikipedia.org/wiki/Demographics_of_India" rel="noopener" target="_blank">Demographics of India</a></li><li><a href="https://en.wikipedia.org/wiki/List_of_highest-grossing_Indian_films" rel="noopener" target="_blank">List of highest grossing Indian films</a></li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/scraping-with-excel">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Scraping with Excel</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/crawling-cli">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Crawling with the CLI</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

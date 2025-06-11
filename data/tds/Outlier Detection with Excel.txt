@@ -1,0 +1,24 @@
+<article class="markdown-section" id="main"><h2 id="outlier-detection-with-excel"><a class="anchor" data-id="outlier-detection-with-excel" href="#/outlier-detection-with-excel?id=outlier-detection-with-excel"><span>Outlier Detection with Excel</span></a></h2><p><a href="https://youtu.be/sUTJb0F9eBw" rel="noopener" target="_blank"><img alt="Outlier detection with Excel" data-origin="https://i.ytimg.com/vi_webp/sUTJb0F9eBw/sddefault.webp" src="https://i.ytimg.com/vi_webp/sUTJb0F9eBw/sddefault.webp"/></a></p><p>You’ll learn how to identify and handle outliers in data using Excel, covering:</p><ul><li><strong>Understanding Outliers</strong>: Definition of outliers and their impact on statistical analysis.</li><li><strong>Calculating Quartiles</strong>: Using Excel formulas to calculate Q1 (first quartile) and Q3 (third quartile).</li><li><strong>Interquartile Range (IQR)</strong>: Finding the IQR by subtracting Q1 from Q3.</li><li><strong>Determining Bounds</strong>: Calculating lower and upper bounds using 1.5 times the IQR.</li><li><strong>Identifying Outliers</strong>: Using Excel functions to determine if data points fall outside the calculated bounds.</li><li><strong>Visualizing Data</strong>: Creating box plots to visualize outliers and data distribution.</li><li><strong>Handling Outliers</strong>: Deciding whether to exclude or keep outliers based on their impact on analysis.</li></ul><p>Here are the links used in the video:</p><ul><li><a href="https://www.khanacademy.org/math/ap-statistics/quantitative-data-ap/xfb5d8e68:describing-distribution-quant/v/classifying-distributions" rel="noopener" target="_blank">Understand distributions and outliers</a></li><li><a href="https://docs.google.com/spreadsheets/d/1_vQF2i5ubKmHQMBqoTwsu6AlevWsQtTD/view#gid=790744269" rel="noopener" target="_blank">COVID-19 vaccinations data - Excel</a></li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/forecasting-with-excel">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Forecasting with Excel</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/data-analysis-with-python">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Data Analysis with Python</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

@@ -1,0 +1,24 @@
+<article class="markdown-section" id="main"><h2 id="geospatial-analysis-with-qgis"><a class="anchor" data-id="geospatial-analysis-with-qgis" href="#/geospatial-analysis-with-qgis?id=geospatial-analysis-with-qgis"><span>Geospatial Analysis with QGIS</span></a></h2><p><a href="https://youtu.be/tJhehs0o-ik" rel="noopener" target="_blank"><img alt="Geospatial analysis with QGIS" data-origin="https://i.ytimg.com/vi_webp/tJhehs0o-ik/sddefault.webp" src="https://i.ytimg.com/vi_webp/tJhehs0o-ik/sddefault.webp"/></a></p><p>You’ll learn how to use QGIS for geographic data processing, covering:</p><ul><li><strong>Shapefiles and KML Files</strong>: Create and manage shapefiles and KML files for storing and analyzing geographic information.</li><li><strong>Downloading QGIS</strong>: Install QGIS on different operating systems and familiarize yourself with its interface.</li><li><strong>Geospatial Data</strong>: Access and utilize shapefiles from sources like Diva-GIS and integrate them into QGIS projects.</li><li><strong>Creating Custom Shapefiles</strong>: Learn how to create custom shapefiles when existing ones are unavailable, including creating a shapefile for South Sudan.</li><li><strong>Editing and Visualization</strong>: Use QGIS tools to edit shapefiles, add attributes, and visualize geographic data with various styling and labeling options.</li><li><strong>Exporting Data</strong>: Export shapefiles or KML files for use in other applications, such as Google Earth.</li></ul><p>Here are links used in the video:</p><ul><li><a href="https://www.qgis.org/en/site/" rel="noopener" target="_blank">QGIS Project</a></li><li><a href="https://www.diva-gis.org/gdata" rel="noopener" target="_blank">Shapefile Data</a></li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/geospatial-analysis-with-python">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Geospatial Analysis with Python</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/network-analysis-in-python">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Network Analysis in Python</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

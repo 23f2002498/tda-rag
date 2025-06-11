@@ -1,0 +1,24 @@
+<article class="markdown-section" id="main"><h2 id="narratives-with-llms"><a class="anchor" data-id="narratives-with-llms" href="#/narratives-with-llms?id=narratives-with-llms"><span>Narratives with LLMs</span></a></h2><p>#TODO</p><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/data-storytelling">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Data Storytelling</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/marimo">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Interactive Notebooks: Marimo</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

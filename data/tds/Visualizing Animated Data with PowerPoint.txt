@@ -1,0 +1,24 @@
+<article class="markdown-section" id="main"><h2 id="visualizing-animated-data-with-powerpoint"><a class="anchor" data-id="visualizing-animated-data-with-powerpoint" href="#/visualizing-animated-data-with-powerpoint?id=visualizing-animated-data-with-powerpoint"><span>Visualizing Animated Data with PowerPoint</span></a></h2><p><a href="https://youtu.be/umHlPDFVWr0" rel="noopener" target="_blank"><img alt="Visualizing animated data with PowerPoint" data-origin="https://i.ytimg.com/vi_webp/umHlPDFVWr0/sddefault.webp" src="https://i.ytimg.com/vi_webp/umHlPDFVWr0/sddefault.webp"/></a></p><ul><li><a href="https://blog.gramener.com/bar-chart-race-in-powerpoint/" rel="noopener" target="_blank">How to make a bar chart race in PowerPoint</a></li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/visualizing-forecasts-with-excel">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Visualizing Forecasts with Excel</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/visualizing-animated-data-with-flourish">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Visualizing Animated Data with Flourish</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

@@ -1,0 +1,24 @@
+<article class="markdown-section" id="main"><h2 id="scraping-live-sessions"><a class="anchor" data-id="scraping-live-sessions" href="#/scraping-live-sessions?id=scraping-live-sessions"><span>Scraping: Live Sessions</span></a></h2><p><a href="https://youtu.be/cAriusuJsmw" rel="noopener" target="_blank"><img alt="Intro to Web scraping and HTML" data-origin="https://i.ytimg.com/vi_webp/cAriusuJsmw/sddefault.webp" src="https://i.ytimg.com/vi_webp/cAriusuJsmw/sddefault.webp"/></a></p><p>Fundamentals of web scraping with urllib and BeautifulSoup</p><p><a href="https://youtu.be/I3auyTYORTs" rel="noopener" target="_blank"><img alt="Fundamentals of web scraping with urllib and BeautifulSoup" data-origin="https://i.ytimg.com/vi_webp/I3auyTYORTs/sddefault.webp" src="https://i.ytimg.com/vi_webp/I3auyTYORTs/sddefault.webp"/></a></p><p>Intermediate web scraping use of cookies</p><p><a href="https://youtu.be/DryMIxMf3VU" rel="noopener" target="_blank"><img alt="Intermediate web scraping use of cookies" data-origin="https://i.ytimg.com/vi_webp/DryMIxMf3VU/sddefault.webp" src="https://i.ytimg.com/vi_webp/DryMIxMf3VU/sddefault.webp"/></a></p><p>XML intro and scraping</p><p><a href="https://youtu.be/8S_jvsjtaYg" rel="noopener" target="_blank"><img alt="XML intro and scraping" data-origin="https://i.ytimg.com/vi_webp/8S_jvsjtaYg/sddefault.webp" src="https://i.ytimg.com/vi_webp/8S_jvsjtaYg/sddefault.webp"/></a></p><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/scraping-emarketer">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Scraping emarketer.com</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/data-preparation">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">5. Data Preparation</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

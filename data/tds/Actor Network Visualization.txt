@@ -1,0 +1,24 @@
+<article class="markdown-section" id="main"><h2 id="actor-network-visualization"><a class="anchor" data-id="actor-network-visualization" href="#/actor-network-visualization?id=actor-network-visualization"><span>Actor Network Visualization</span></a></h2><p>Find the shortest path between Govinda &amp; Angelina Jolie using IMDb data using Python: <a href="https://pypi.org/project/networkx/" rel="noopener" target="_blank">networkx</a> or <a href="https://pypi.org/project/scikit-network" rel="noopener" target="_blank">scikit-network</a>.</p><p><a href="https://youtu.be/lcwMsPxPIjc" rel="noopener" target="_blank"><img alt="Jolie No. 1" data-origin="https://i.ytimg.com/vi_webp/lcwMsPxPIjc/sddefault.webp" src="https://i.ytimg.com/vi_webp/lcwMsPxPIjc/sddefault.webp"/></a></p><ul><li><a href="https://github.com/sanand0/jolie-no-1/blob/master/jolie-no-1.ipynb" rel="noopener" target="_blank">Notebook: How this video was created</a></li><li><a href="https://github.com/sanand0/jolie-no-1/blob/master/imdb-actor-pairing.ipynb" rel="noopener" target="_blank">The data used to visualize the network</a></li><li><a href="https://github.com/sanand0/jolie-no-1/blob/master/shortest-path.ipynb" rel="noopener" target="_blank">The shortest path between actors</a></li><li><a href="https://developer.imdb.com/non-commercial-datasets/" rel="noopener" target="_blank">IMDB data</a></li><li><a href="https://github.com/sanand0/jolie-no-1" rel="noopener" target="_blank">Codebase</a></li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/data-visualization-with-chatgpt">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Data Visualization with ChatGPT</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/rawgraphs">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">RAWgraphs</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

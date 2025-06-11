@@ -1,0 +1,46 @@
+<article class="markdown-section" id="main"><h2 id="serverless-hosting-vercel"><a class="anchor" data-id="serverless-hosting-vercel" href="#/vercel?id=serverless-hosting-vercel"><span>Serverless hosting: Vercel</span></a></h2><!--
+
+Why Vercel? I evaluated from https://survey.stackoverflow.co/2024/technology#2-cloud-platforms
+
+- AWS, Azure, Google Cloud are too complex for beginners
+- Cloudflare (next most popular, widely admired) Python support is in beta
+- Hetzner (most admired), Supabase (next most admired) do not have a serverless platform
+- Fly.io (next most admired) does not have a free tier
+- Heroku (used in previous terms) is the least admired
+- Vercel is both popular, admired, growing, has a free plan, and a simple API
+
+-->
+<p>Serverless platforms let you rent a single function instead of an entire machine. They’re perfect for small web tools that <em>don’t need to run all the time</em>. Here are some common real-life uses:</p><ul><li>A contact form that emails you when someone wants to hire you (runs for 2-3 seconds, a few times per day)</li><li>A tool that converts uploaded photos to black and white (runs for 5-10 seconds when someone uploads a photo)</li><li>A chatbot that answers basic questions about your business hours (runs for 1-2 seconds per question)</li><li>A newsletter sign-up that adds emails to your mailing list (runs for 1 second per sign-up)</li><li>A webhook that posts your Etsy sales to Discord (runs for 1 second whenever you make a sale)</li></ul><p>You only pay when someone uses your tool, and the platform automatically handles busy periods. For example, if 100 people fill out your contact form at once, the platform creates 100 temporary copies of your code to handle them all. When they’re done, these copies disappear. It’s cheaper than running a full-time server because you’re not paying for the time when no one is using your tool - most tools are idle 95% of the time!</p><p>Rather than writing a full program, serverless platforms let you write functions. These functions are called via HTTP requests. They run in a cloud environment and are scaled up and down automatically. But this means you write programs in a different style. For example:</p><ul><li>You can’t <code>pip install</code> packages - you have to use <code>requirements.txt</code></li><li>You can’t read or write files from the file system - you can only use APIs.</li><li>You can’t run commands (e.g. <code>subprocess.run()</code>)</li></ul><p><a href="https://vercel.com/" rel="noopener" target="_blank">Vercel</a> is a cloud platform optimized for frontend frameworks and serverless functions. Vercel is tightly integrated with GitHub. Pushing to your repository automatically triggers new deployments.</p><p>Here’s a <a href="https://vercel.com/docs/functions/runtimes/python" rel="noopener" target="_blank">quickstart</a>. <a href="https://vercel.com/signup" rel="noopener" target="_blank">Sign-up with Vercel</a>. Create an empty <code>git</code> repo with this <code>api/index.py</code> file.</p><p>To deploy a FastAPI app, add a <code>requirements.txt</code> file with <code>fastapi</code> as a dependency.</p><pre class="language-text" data-lang="text" v-pre=""><code class="lang-text language-text">fastapi</code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Add your FastAPI code to a file, e.g. <code>main.py</code>.</p><pre class="language-python" data-lang="python" v-pre=""><code class="lang-python language-python"><span class="token comment"># main.py</span>
+<span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">read_root</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"Hello, World!"</span><span class="token punctuation">}</span></code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Add a <code>vercel.json</code> file to the root of your repository.</p><pre class="language-json" data-lang="json" v-pre=""><code class="lang-json language-json"><span class="token punctuation">{</span>
+  <span class="token property">"builds"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token property">"src"</span><span class="token operator">:</span> <span class="token string">"main.py"</span><span class="token punctuation">,</span> <span class="token property">"use"</span><span class="token operator">:</span> <span class="token string">"@vercel/python"</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"routes"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token property">"src"</span><span class="token operator">:</span> <span class="token string">"/(.*)"</span><span class="token punctuation">,</span> <span class="token property">"dest"</span><span class="token operator">:</span> <span class="token string">"main.py"</span> <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>On the command line, run:</p><ul><li><code>npx vercel</code> to deploy a test version</li><li><code>npx vercel --prod</code> to deploy to production</li></ul><p><strong>Environment Variables</strong>. Use <code>npx vercel env add</code> to add environment variables. In your code, use <code>os.environ.get('SECRET_KEY')</code> to access them.</p><h3 id="videos"><a class="anchor" data-id="videos" href="#/vercel?id=videos"><span>Videos</span></a></h3><p><a href="https://youtu.be/sPmat30SE4k" rel="noopener" target="_blank"><img alt="Vercel Product Walkthrough" data-origin="https://i.ytimg.com/vi_webp/sPmat30SE4k/sddefault.webp" src="https://i.ytimg.com/vi_webp/sPmat30SE4k/sddefault.webp"/></a></p><p><a href="https://youtu.be/8R-cetf_sZ4" rel="noopener" target="_blank"><img alt="Deploy FastAPI on Vercel | Quick and Easy Tutorial" data-origin="https://i.ytimg.com/vi_webp/8R-cetf_sZ4/sddefault.webp" src="https://i.ytimg.com/vi_webp/8R-cetf_sZ4/sddefault.webp"/></a></p><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/colab">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Notebooks: Google Colab</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/github-actions">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">CI/CD: GitHub Actions</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

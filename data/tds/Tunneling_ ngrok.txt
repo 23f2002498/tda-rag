@@ -1,0 +1,28 @@
+<article class="markdown-section" id="main"><h2 id="tunneling-ngrok"><a class="anchor" data-id="tunneling-ngrok" href="#/ngrok?id=tunneling-ngrok"><span>Tunneling: ngrok</span></a></h2><p><a href="https://ngrok.com/" rel="noopener" target="_blank">Ngrok</a> is a tool that creates secure tunnels to your localhost, making your local development server accessible to the internet. It’s essential for testing webhooks, sharing work in progress, or debugging applications in production-like environments.</p><p><a href="https://youtu.be/dfMdLGZLXSg" rel="noopener" target="_blank"><img alt="ngrok in 60 seconds" data-origin="https://i.ytimg.com/vi_webp/dfMdLGZLXSg/sddefault.webp" src="https://i.ytimg.com/vi_webp/dfMdLGZLXSg/sddefault.webp"/></a></p><p>Run the command <code>uvx ngrok http 8000</code> to create a tunnel to your local server on port 8000. This generates a public URL that you can share with others.</p><p>To get started, log into <code>ngrok.com</code> and <a href="https://dashboard.ngrok.com/get-started/your-authtoken" rel="noopener" target="_blank">get an authtoken from the dashboard</a>. Copy it. Then run:</p><pre class="language-bash" data-lang="bash" v-pre=""><code class="lang-bash language-bash">ngrok config add-authtoken <span class="token variable">$YOUR_AUTHTOKEN</span></code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Now you can forward any local port to the internet. For example:</p><pre class="language-bash" data-lang="bash" v-pre=""><code class="lang-bash language-bash"><span class="token comment"># Start a local server on port 8000</span>
+uv run <span class="token parameter variable">-m</span> http.server <span class="token number">8000</span>
+
+<span class="token comment"># Start HTTP tunnel</span>
+uvx ngrok http <span class="token number">8000</span></code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Here are useful things you can do with <code>ngrok http</code>:</p><ul><li><code>ngrok http file://.</code> to serve local files</li><li><code>--response-header-add "Access-Control-Allow-Origin: *"</code> to enable CORS</li><li><code>--oauth google --oauth-client-id $CLIENT_ID --oauth-client-secret $SECRET --oauth-allow-domain example.com --oauth-allow-email user@example.org</code> to restrict users to @example.com and <a href="mailto:user@example.org">user@example.org</a> using Google Auth</li><li><code>--ua-filter-deny ".*bot$"</code> to reject user agents ending with <code>bot</code></li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/github-codespaces">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">DevContainers: GitHub Codespaces</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/cors">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">CORS</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

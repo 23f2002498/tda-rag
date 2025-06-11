@@ -1,0 +1,24 @@
+<article class="markdown-section" id="main"><h2 id="scraping-emarketer"><a class="anchor" data-id="scraping-emarketer" href="#/scraping-emarketer?id=scraping-emarketer"><span>Scraping emarketer</span></a></h2><p>In this live scraping session, we explore a real-life scenario where Straive had to scrape data from emarketer.com for a demo. This is a fairly realistic and representative way of how one might go about scraping a website.</p><p><a href="https://youtu.be/ZzUsDE1XjhE" rel="noopener" target="_blank"><img alt="Live scraping session" data-origin="https://i.ytimg.com/vi_webp/ZzUsDE1XjhE/sddefault.webp" src="https://i.ytimg.com/vi_webp/ZzUsDE1XjhE/sddefault.webp"/></a></p><p>You’ll learn:</p><ul><li><strong>Scraping</strong>: How to extract data from web pages, including constructing URLs, fetching page content, and parsing HTML using packages like <a href="https://lxml.de/" rel="noopener" target="_blank"><code>lxml</code></a> and <a href="https://www.python-httpx.org/" rel="noopener" target="_blank"><code>httpx</code></a>.</li><li><strong>Caching</strong>: Implementing a caching strategy to avoid redundant data fetching for efficiency and reliability.</li><li><strong>Error Handling and Debugging</strong>: Practical tips for troubleshooting, such as using liberal print statements, breakpoints for in-depth debugging, and the concept of “rubber duck debugging” to clarify problems.</li><li><strong>LLMs</strong>: Benefits of Gemini / ChatGPT for code suggestions and troubleshooting.</li><li><strong>Real-World Application</strong>: How quick proofs of concept to showcase capabilities to clients, emphasizing practice over theory.</li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/scheduled-scraping-with-github-actions">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Scheduled Scraping with GitHub Actions</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/scraping-live-sessions">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Scraping: Live Sessions</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

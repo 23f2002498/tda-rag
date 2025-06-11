@@ -1,0 +1,61 @@
+<article class="markdown-section" id="main"><h2 id="cicd-github-actions"><a class="anchor" data-id="cicd-github-actions" href="#/github-actions?id=cicd-github-actions"><span>CI/CD: GitHub Actions</span></a></h2><p><a href="https://github.com/features/actions" rel="noopener" target="_blank">GitHub Actions</a> is a powerful automation platform built into GitHub. It helps automate your development workflow - running tests, deploying applications, updating datasets, retraining models, etc.</p><ul><li>Understand the basics of <a href="https://docs.github.com/en/actions/writing-workflows/quickstart" rel="noopener" target="_blank">YAML configuration files</a></li><li>Explore the <a href="https://github.com/marketplace?type=actions" rel="noopener" target="_blank">pre-built actions from the marketplace</a></li><li>How to <a href="https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions" rel="noopener" target="_blank">handle secrets securely</a></li><li><a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow" rel="noopener" target="_blank">Triggering a workflow</a></li><li>Staying within the <a href="https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions" rel="noopener" target="_blank">free tier limits</a></li><li><a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/caching-dependencies-to-speed-up-workflows" rel="noopener" target="_blank">Caching dependencies to speed up workflows</a></li></ul><p>Here is a sample <code>.github/workflows/iss-location.yml</code> that runs daily, appends the International Space Station location data into <code>iss-location.json</code>, and commits it to the repository.</p><pre class="language-yaml" data-lang="yaml" v-pre=""><code class="lang-yaml language-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> Log ISS Location Data Daily
+
+<span class="token key atrule">on</span><span class="token punctuation">:</span>
+  <span class="token key atrule">schedule</span><span class="token punctuation">:</span>
+    <span class="token comment"># Runs at 12:00 UTC (noon) every day</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">cron</span><span class="token punctuation">:</span> <span class="token string">"0 12 * * *"</span>
+  <span class="token key atrule">workflow_dispatch</span><span class="token punctuation">:</span> <span class="token comment"># Allows manual triggering</span>
+
+<span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">collect-iss-data</span><span class="token punctuation">:</span>
+    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
+    <span class="token key atrule">permissions</span><span class="token punctuation">:</span>
+      <span class="token key atrule">contents</span><span class="token punctuation">:</span> write
+
+    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Checkout repository
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v4
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Install uv
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> astral<span class="token punctuation">-</span>sh/setup<span class="token punctuation">-</span>uv@v5
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Fetch ISS location data
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span> <span class="token comment"># python</span>
+          uv run <span class="token punctuation">-</span><span class="token punctuation">-</span>with requests python &lt;&lt; 'EOF'
+          import requests
+
+          data = requests.get('http<span class="token punctuation">:</span>//api.open<span class="token punctuation">-</span>notify.org/iss<span class="token punctuation">-</span>now.json').text
+          with open('iss<span class="token punctuation">-</span>location.jsonl'<span class="token punctuation">,</span> 'a') as f<span class="token punctuation">:</span>
+              f.write(data + '\n')
+          'EOF'
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Commit and push changes
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span> <span class="token comment"># shell</span>
+          git config <span class="token punctuation">-</span><span class="token punctuation">-</span>local user.email "github<span class="token punctuation">-</span>actions<span class="token punctuation">[</span>bot<span class="token punctuation">]</span>@users.noreply.github.com"
+          git config <span class="token punctuation">-</span><span class="token punctuation">-</span>local user.name "github<span class="token punctuation">-</span>actions<span class="token punctuation">[</span>bot<span class="token punctuation">]</span>"
+          git add iss<span class="token punctuation">-</span>location.jsonl
+          git commit <span class="token punctuation">-</span>m "Update ISS position data <span class="token punctuation">[</span>skip ci<span class="token punctuation">]</span>" <span class="token punctuation">|</span><span class="token punctuation">|</span> exit 0
+          git push</code><button class="docsify-copy-code-button"><span class="label">Copy to clipboard</span><span aria-hidden="hidden" class="error">Error</span><span aria-hidden="hidden" class="success">Copied</span><span aria-live="polite"></span></button></pre><p>Tools:</p><ul><li><a href="https://cli.github.com/" rel="noopener" target="_blank">GitHub CLI</a>: Manage workflows from terminal</li><li><a href="https://github.com/github/super-linter" rel="noopener" target="_blank">Super-Linter</a>: Validate code style</li><li><a href="https://github.com/release-drafter/release-drafter" rel="noopener" target="_blank">Release Drafter</a>: Automate releases</li><li><a href="https://github.com/nektos/act" rel="noopener" target="_blank">act</a>: Run actions locally</li></ul><p><a href="https://youtu.be/mFFXuXjVgkU" rel="noopener" target="_blank"><img alt="Github Actions CI/CD - Everything you need to know to get started" data-origin="https://i.ytimg.com/vi_webp/mFFXuXjVgkU/sddefault.webp" src="https://i.ytimg.com/vi_webp/mFFXuXjVgkU/sddefault.webp"/></a></p><ul><li><a href="https://youtu.be/1tD7km5jK70" rel="noopener" target="_blank">How to handle secrets in GitHub Actions</a></li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/vercel">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">Serverless hosting: Vercel</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/docker">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Containers: Docker, Podman</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>

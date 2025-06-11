@@ -1,0 +1,26 @@
+<article class="markdown-section" id="main"><h2 id="scraping-imdb-with-javascript"><a class="anchor" data-id="scraping-imdb-with-javascript" href="#/scraping-imdb-with-javascript?id=scraping-imdb-with-javascript"><span>Scraping IMDb with JavaScript</span></a></h2><p><a href="https://youtu.be/YVIKZqZIcCo" rel="noopener" target="_blank"><img alt="Scraping the IMDb with Browser JavaScript" data-origin="https://i.ytimg.com/vi_webp/YVIKZqZIcCo/sddefault.webp" src="https://i.ytimg.com/vi_webp/YVIKZqZIcCo/sddefault.webp"/></a></p><p>You’ll learn how to scrape the <a href="https://www.imdb.com/chart/top" rel="noopener" target="_blank">IMDb Top 250 movies</a> directly in the browser using JavaScript on the Chrome DevTools, covering:</p><ul><li><strong>Access Developer Tools</strong>: Use F12 or right-click &gt; Inspect to open developer tools in Chrome or Edge.</li><li><strong>Inspect Elements</strong>: Identify and inspect HTML elements using the Elements tab.</li><li><strong>Query Selectors</strong>: Use <code>document.querySelectorAll</code> and <code>document.querySelector</code> to find elements by CSS class.</li><li><strong>Extract Text Content</strong>: Retrieve text content from elements using JavaScript.</li><li><strong>Functional Programming</strong>: Apply <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" rel="noopener" target="_blank">map</a>
+and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" rel="noopener" target="_blank">arrow functions</a>
+for concise data processing.</li><li><strong>Data Structuring</strong>: Collect and format data into an array of arrays.</li><li><strong>Copying Data</strong>: Use the copy function to transfer data to the clipboard.</li><li><strong>Convert to Spreadsheet</strong>: Use online tools to convert JSON data to CSV or Excel format.</li><li><strong>Text Manipulation</strong>: Perform text splitting and cleaning in Excel for final data formatting.</li></ul><p>Here are links and references:</p><ul><li><a href="https://www.imdb.com/chart/top/" rel="noopener" target="_blank">IMDB Top 250 movies</a></li><li><a href="https://developer.chrome.com/docs/devtools/overview/" rel="noopener" target="_blank">Learn about Chrome Devtools</a></li></ul><div class="docsify-pagination-container">
+<div class="pagination-item pagination-item--previous">
+<a href="#/bbc-weather-api-with-python">
+<div class="pagination-item-label">
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="8,2 2,8 8,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+<span>Previous</span>
+</div>
+<div class="pagination-item-title">BBC Weather API with Python</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+<div class="pagination-item pagination-item--next">
+<a href="#/nominatim-api-with-python">
+<div class="pagination-item-label">
+<span>Next</span>
+<svg height="16" viewbox="0 0 10 16" width="10" xmlns="http://www.w3.org/2000/svg">
+<polyline fill="none" points="2,2 8,8 2,14" vector-effect="non-scaling-stroke"></polyline>
+</svg>
+</div>
+<div class="pagination-item-title">Nominatim API with Python</div>
+<div class="pagination-item-subtitle"></div></a>
+</div>
+</div></article>
