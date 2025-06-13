@@ -1,0 +1,7 @@
+# ROE timing overlaps with Java OPPE
+
+**User**: carlton
+**URL**: [https://discourse.onlinedegree.iitm.ac.in/t/roe-timing-overlaps-with-java-oppe/168537/3](https://discourse.onlinedegree.iitm.ac.in/t/roe-timing-overlaps-with-java-oppe/168537/3)
+
+[@Nelson](/u/nelson)  
+TDS ROE is at 1pm in the afternoon for everyone.

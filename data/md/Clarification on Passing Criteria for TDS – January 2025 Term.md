@@ -1,0 +1,8 @@
+# Clarification on Passing Criteria for TDS – January 2025 Term
+
+**User**: carlton
+**URL**: [https://discourse.onlinedegree.iitm.ac.in/t/clarification-on-passing-criteria-for-tds-january-2025-term/169807/2](https://discourse.onlinedegree.iitm.ac.in/t/clarification-on-passing-criteria-for-tds-january-2025-term/169807/2)
+
+Best 2/5 first weekly GA >=40  
+Final course score T = 0.15GAA + 0.2 ROE1 + 0.2 P1 + 0.2P2 + 0.25F  
+Final T >= 40 (or less depending on any certificates for disabilities/SCST/OB etc.)
