@@ -1,117 +1,106 @@
-from fastapi import FastAPI, UploadFile, File, Form
+from fastapi import FastAPI
 from fastapi.responses import JSONResponse
-from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import base64
+from typing import Optional, List
 import os
 import io
+import base64
 import pytesseract
 from PIL import Image
-from sentence_transformers import SentenceTransformer, util
+from sentence_transformers import SentenceTransformer
 import chromadb
-from chromadb.config import Settings
-from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
+import requests
 from dotenv import load_dotenv
-from typing import Optional
 
-
+# Initialize FastAPI
 app = FastAPI()
 
 load_dotenv()
 api_key = os.getenv("API_KEY")
 
-# Load embedding model locally
+# Load embedding model
 embed_model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B")
 
-# ChromaDB setup
+# ChromaDB setup (collection renamed)
 chroma_client = chromadb.PersistentClient(path="chroma_store")
-collection = chroma_client.get_or_create_collection(name="md-docs")
+collection = chroma_client.get_or_create_collection(name="md_docs")
 
+# Pydantic model
 class QuestionPayload(BaseModel):
     question: str
-    image: Optional[str] = None 
+    image: Optional[str] = None  # base64-encoded image string
 
+# Generate embedding
 def get_embedding(text: str):
-    """Generate embedding vector for the input text."""
     return embed_model.encode([text])[0]
 
-import requests
-
-def llm_ans(question: str, context_snippets: list) -> str:
-    # Variables
-    model = "gpt-4o-mini"
+# Call remote LLM with context
+def llm_ans(query: str, context: List[str]) -> str:
     api_url = "https://aiproxy.sanand.workers.dev/openai/v1/chat/completions"
+    model = "gpt-4o-mini"
+    headers = {"Content-Type": "application/json"}
+    headers["Authorization"] = f"Bearer {api_key}"
 
-    # Construct system + user prompt using RAG-style grounding
-    system_prompt = "You are a helpful assistant. Use the provided context to answer the question as accurately as possible."
-    context = "\n\n".join(context_snippets)
-    user_prompt = f"Context:\n{context}\n\nQuestion:\n{question}"
-
-    headers = {
-        "Content-Type": "application/json"
-    }
-    
-    if api_key:
-        headers["Authorization"] = f"Bearer {api_key}"
-
-    data = {
-        "model": model,
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt}
-        ],
-        "temperature": 0.2
-    }
+    messages = [
+        {"role": "system", "content": "Answer the user query using the following context. If no context is relevantand you have no knowledge on it dont't hallucinate rather say you don’t know."},
+        {"role": "user", "content": f"Question: {query}\n\nContext:\n{chr(10).join(context)}"}
+    ]
 
     try:
-        response = requests.post(api_url, json=data, headers=headers, timeout=30)
+        response = requests.post(api_url, json={
+            "model": model,
+            "stream": False,
+            "messages": messages
+        }, headers=headers, timeout=20)
+
         response.raise_for_status()
-        return response.json()["choices"][0]["message"]["content"].strip()
+        return response.json().get("choices", [{}])[0].get("message", {}).get("content", "No response from LLM.")
     except Exception as e:
         print(f"[LLM ERROR] {e}")
-        return "Failed to retrieve answer from LLM."
+        return f"LLM error: {e}"
 
-
+# POST endpoint
 @app.post("/api/")
 def process_question(payload: QuestionPayload):
-    question = payload.question
+    question = payload.question.strip()
+    image_data = payload.image
     ocr_text = ""
-    
-    # OCR extraction
-    if payload.image :
-        image_data = base64.b64decode(payload.image)
-        try:
-            img = Image.open(io.BytesIO(image_data))
-            ocr_text = pytesseract.image_to_string(img)
-            
-        except Exception as e:
-            ocr_text = ""  # fallback if OCR fails
-    
-    question_full = f"{question}\n{ocr_text.strip()}"
 
-    # Embed the query
-    question_embedding = get_embedding(question_full)
+    # OCR if image provided
+    if image_data:
+        try:
+            image_bytes = base64.b64decode(image_data)
+            img = Image.open(io.BytesIO(image_bytes))
+            ocr_text = pytesseract.image_to_string(img).strip()
+        except Exception as e:
+            print(f"[OCR ERROR] {e}")
+
+    # Combine question and OCR text
+    full_input = f"{question}\n{ocr_text}".strip()
+
+    # Embed question
+    embedding = get_embedding(full_input)
 
     # Query ChromaDB
-    results = collection.query(
-        query_embeddings=[question_embedding],
-        n_results=3
-    )
+    try:
+        results = collection.query(query_embeddings=[embedding], n_results=3)
+        documents = results['documents'][0]
+        metadatas = results['metadatas'][0]
+    except Exception as e:
+        print(f"[ChromaDB ERROR] {e}")
+        return JSONResponse(status_code=500, content={"error": "ChromaDB query failed."})
 
-    # Prepare context and links
-    context_snippets = results['documents'][0]
-    links = []
-    for doc, meta in zip(context_snippets, results['metadatas'][0]):
-        links.append({
-            "url": meta.get("source", ""),
-            "text": doc[:200]  # snippet
-        })
+    # Prepare context + links
+    context_snippets = documents
+    links = [{
+        "url": meta.get("source", ""),
+        "text": doc[:200]
+    } for doc, meta in zip(documents, metadatas)]
 
-    # Call LLM with retrieved context
-    answer = llm_ans(question_full, context_snippets)
+    # Get LLM answer
+    answer = llm_ans(full_input, context_snippets)
 
     return JSONResponse(content={
         "answer": answer,
         "links": links
     })
-
