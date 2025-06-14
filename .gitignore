@@ -2,3 +2,4 @@ auth.json
 auth_profile
 .venv
 data/raw
+.env
