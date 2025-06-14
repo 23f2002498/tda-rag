@@ -12,11 +12,14 @@ import chromadb
 from chromadb.config import Settings
 from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
 from dotenv import load_dotenv
+from typing import Optional
+
 
 app = FastAPI()
 
 load_dotenv()
 api_key = os.getenv("API_KEY")
+api_url = os.getenv("API_URL")
 
 # Load embedding model locally
 embed_model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B")
@@ -27,7 +30,7 @@ collection = chroma_client.get_or_create_collection(name="md-docs")
 
 class QuestionPayload(BaseModel):
     question: str
-    image: str  # base64 string
+    image: Optional[str] = None 
 
 def get_embedding(text: str):
     """Generate embedding vector for the input text."""
@@ -38,7 +41,6 @@ import requests
 def llm_ans(question: str, context_snippets: list) -> str:
     # Variables
     model = "gpt-4o-mini"
-    api_url = "https://aiproxy.sanand.workers.dev/openai/v1/chat/completions"
 
     # Construct system + user prompt using RAG-style grounding
     system_prompt = "You are a helpful assistant. Use the provided context to answer the question as accurately as possible."
@@ -73,15 +75,19 @@ def llm_ans(question: str, context_snippets: list) -> str:
 @app.post("/api/")
 def process_question(payload: QuestionPayload):
     question = payload.question
-    image_data = base64.b64decode(payload.image)
+    ocr_text = ""
     
     # OCR extraction
-    try:
-        img = Image.open(io.BytesIO(image_data))
-        ocr_text = pytesseract.image_to_string(img)
-        question_full = f"{question}\n{ocr_text.strip()}"
-    except Exception as e:
-        question_full = question  # fallback if OCR fails
+    if payload.image :
+        image_data = base64.b64decode(payload.image)
+        try:
+            img = Image.open(io.BytesIO(image_data))
+            ocr_text = pytesseract.image_to_string(img)
+            
+        except Exception as e:
+            ocr_text = ""  # fallback if OCR fails
+    
+    question_full = f"{question}\n{ocr_text.strip()}"
 
     # Embed the query
     question_embedding = get_embedding(question_full)
