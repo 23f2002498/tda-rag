@@ -1,6 +1,7 @@
 auth.json
 auth_profile
 .venv
-data/raw
+data
 .env
 __pycache__
+promptfoo.yaml
