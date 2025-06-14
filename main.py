@@ -7,19 +7,22 @@ import io
 import base64
 import pytesseract
 from PIL import Image
-from sentence_transformers import SentenceTransformer
 import chromadb
 import requests
 from dotenv import load_dotenv
+from huggingface_hub import InferenceClient
 
 # Initialize FastAPI
 app = FastAPI()
 
 load_dotenv()
 api_key = os.getenv("API_KEY")
+hf_token = os.getenv("HF_TOKEN")  # Hugging Face token
 
-# Load embedding model
-embed_model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B")
+client = InferenceClient(
+    provider="hf-inference",
+    api_key=os.environ["HF_TOKEN"],
+)
 
 # ChromaDB setup (collection renamed)
 chroma_client = chromadb.PersistentClient(path="chroma_store")
@@ -30,9 +33,17 @@ class QuestionPayload(BaseModel):
     question: str
     image: Optional[str] = None  # base64-encoded image string
 
-# Generate embedding
+# Generate embedding via Hugging Face Inference API
 def get_embedding(text: str):
-    return embed_model.encode([text])[0]
+    try:
+        result = client.feature_extraction(
+            text=text,
+            model="sentence-transformers/all-MiniLM-L6-v2",
+        )
+        return result  # This is your embedding vector
+    except Exception as e:
+        print(f"[EMBEDDING ERROR] {e}")
+        return None
 
 # Call remote LLM with context
 def llm_ans(query: str, context: List[str]) -> str:
@@ -80,6 +91,8 @@ def process_question(payload: QuestionPayload):
 
     # Embed question
     embedding = get_embedding(full_input)
+    if embedding is None:
+        return JSONResponse(status_code=500, content={"error": "Embedding generation failed."})
 
     # Query ChromaDB
     try:

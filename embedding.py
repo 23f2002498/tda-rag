@@ -1,19 +1,17 @@
 import os
 import glob
 import uuid
-import json
-import requests
 import re
 import chromadb
-# from sentence_transformers import SentenceTransformer
-# embed_model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B")
+from sentence_transformers import SentenceTransformer
 
 # === CONFIG ===
-OLLAMA_URL = "http://192.168.1.11:11434/api/embeddings"
-MODEL_NAME = "dengcao/Qwen3-Embedding-0.6B:Q8_0"
 DATA_DIR = "data/md"
 CHROMA_DIR = "chroma_store"
 COLLECTION_NAME = "md_docs"
+
+# === Load embedding model ===
+embed_model = SentenceTransformer("all-MiniLM-L6-v2")  # 384-dimensional
 
 # === Helper: Extract URL from Markdown ===
 def extract_url(text):
@@ -35,15 +33,10 @@ def load_markdown_files(directory):
                 })
     return md_data
 
-# === Helper: Get embeddings from remote Ollama ===
+# === Helper: Get embedding from local model ===
 def get_embedding(text):
     try:
-        response = requests.post(OLLAMA_URL, json={
-            "model": MODEL_NAME,
-            "prompt": text
-        })
-        response.raise_for_status()
-        return response.json()["embedding"]
+        return embed_model.encode(text).tolist()
     except Exception as e:
         print(f"[ERROR] Embedding failed: {e}")
         return None
