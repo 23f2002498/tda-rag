@@ -1,4 +1,17 @@
 # TDS MAY 2025 Project 1
+
+---
+
+> ⚠️ **Disclaimer**:
+> This API is currently deployed on [Render.com](https://render.com), a platform that may temporarily suspend inactive services. As a result, the **first request after a period of inactivity may be slower** due to cold start.
+>
+> Please **send a test request once** to "wake up" the service before running extensive tests or integrations. If you encounter any issues initially, wait a few seconds and retry. Persistent issues should be reported for review.
+>
+> The service can also face downtime duriong maintenance.
+
+---
+
+
 FastAPI OCR + Embedding Q&A API Built with data sourced from IITM discourse and course pages
 
 This project is a lightweight FastAPI-based API that allows users to ask questions, optionally attach an image, and receive contextual answers using OCR and embedding-based retrieval.
