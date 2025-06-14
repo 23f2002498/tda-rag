@@ -19,7 +19,6 @@ app = FastAPI()
 
 load_dotenv()
 api_key = os.getenv("API_KEY")
-api_url = os.getenv("API_URL")
 
 # Load embedding model locally
 embed_model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B")
@@ -41,6 +40,7 @@ import requests
 def llm_ans(question: str, context_snippets: list) -> str:
     # Variables
     model = "gpt-4o-mini"
+    api_url = "https://aiproxy.sanand.workers.dev/openai/v1/chat/completions"
 
     # Construct system + user prompt using RAG-style grounding
     system_prompt = "You are a helpful assistant. Use the provided context to answer the question as accurately as possible."
