@@ -42,7 +42,7 @@ def llm_ans(query: str, context: List[str]) -> str:
     headers["Authorization"] = f"Bearer {api_key}"
 
     messages = [
-        {"role": "system", "content": "Answer the user query using the following context. If no context is relevantand you have no knowledge on it dont't hallucinate rather say you don’t know."},
+        {"role": "system", "content": "Answer the user query using the following context. If no context is relevantand you have no knowledge on it dont't hallucinate rather say you don’t know.Always reply with exact details and not speculation especially when it is regarding dates"},
         {"role": "user", "content": f"Question: {query}\n\nContext:\n{chr(10).join(context)}"}
     ]
 

@@ -1,8 +1,0 @@
-# Repeat course
-
-**User**: carlton
-**URL**: [https://discourse.onlinedegree.iitm.ac.in/t/repeat-course/171798/3](https://discourse.onlinedegree.iitm.ac.in/t/repeat-course/171798/3)
-
-TDS is the worst subject to repeat in order to improve CGPA.
-
-Its better to take a high credit, easy course to improve CGPA. **We never recommend taking TDS for grade improvement.** If you have passed it, its better to move on.

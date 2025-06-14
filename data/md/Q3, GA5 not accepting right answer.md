@@ -1,9 +1,0 @@
-# Q3, GA5 not accepting right answer
-
-**User**: carlton
-**URL**: [https://discourse.onlinedegree.iitm.ac.in/t/q3-ga5-not-accepting-right-answer/168011/8](https://discourse.onlinedegree.iitm.ac.in/t/q3-ga5-not-accepting-right-answer/168011/8)
-
-Hi [@muskan2431](/u/muskan2431) we are running some checks.
-
-Please bear with us,  
-Kind regards

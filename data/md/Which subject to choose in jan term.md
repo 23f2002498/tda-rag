@@ -1,8 +1,0 @@
-# Which subject to choose in jan term
-
-**User**: carlton
-**URL**: [https://discourse.onlinedegree.iitm.ac.in/t/which-subject-to-choose-in-jan-term/161071/3](https://discourse.onlinedegree.iitm.ac.in/t/which-subject-to-choose-in-jan-term/161071/3)
-
-TDS at the end best. Gives you the best chance of doing well in it.
-
-Kind regards

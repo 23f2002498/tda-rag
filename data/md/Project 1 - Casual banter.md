@@ -1,9 +1,0 @@
-# Project 1 - Casual banter
-
-**User**: carlton
-**URL**: [https://discourse.onlinedegree.iitm.ac.in/t/project-1-casual-banter/167344/2](https://discourse.onlinedegree.iitm.ac.in/t/project-1-casual-banter/167344/2)
-
-Done ![:slight_smile:](https://emoji.discourse-cdn.com/google/slight_smile.png?v=12 ":slight_smile:")
-
-Kind regards  
-Cant say no to a fuzzy wuzzy cat ![:heart_eyes:](https://emoji.discourse-cdn.com/google/heart_eyes.png?v=12 ":heart_eyes:")

@@ -1,8 +1,0 @@
-# ROE instructions request
-
-**User**: carlton
-**URL**: [https://discourse.onlinedegree.iitm.ac.in/t/roe-instructions-request/168142/5](https://discourse.onlinedegree.iitm.ac.in/t/roe-instructions-request/168142/5)
-
-ROEs are always unique. They can be of any kind. We do not fix one method. Therefore its not possible to say what kind of questions will be there whether MCQ, MSQ or numerical or text etc.
-
-Kind regards

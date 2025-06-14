@@ -1,7 +1,0 @@
-# What to do if peer has not allowed access and the deadline is over for peer review in Project 2
-
-**User**: carlton
-**URL**: [https://discourse.onlinedegree.iitm.ac.in/t/what-to-do-if-peer-has-not-allowed-access-and-the-deadline-is-over-for-peer-review-in-project-2/172471/3](https://discourse.onlinedegree.iitm.ac.in/t/what-to-do-if-peer-has-not-allowed-access-and-the-deadline-is-over-for-peer-review-in-project-2/172471/3)
-
-[@SohamHaldar](/u/sohamhaldar) [@21f3000745](/u/21f3000745) We had sent out an email with an extra non - duplicate peer and extended the deadline by a day to accommodate reviewing the extra peer. Please check your email with the subject.  
-[TDS Jan 25] Bonus peer

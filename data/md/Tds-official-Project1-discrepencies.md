@@ -1,6 +1,0 @@
-# Tds-official-Project1-discrepencies
-
-**User**: carlton
-**URL**: [https://discourse.onlinedegree.iitm.ac.in/t/tds-official-project1-discrepencies/171141/6](https://discourse.onlinedegree.iitm.ac.in/t/tds-official-project1-discrepencies/171141/6)
-
-You have to see the logs for that. We have shared the logs. Everyone was graded by the exact same code, so there is no partiality. Your code did not produce consistent results.
