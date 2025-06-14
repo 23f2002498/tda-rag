@@ -3,3 +3,4 @@ auth_profile
 .venv
 data/raw
 .env
+__pycache__

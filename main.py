@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import base64
 import os
@@ -12,19 +13,17 @@ from chromadb.config import Settings
 from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
 from dotenv import load_dotenv
 
-load_dotenv()
-
 app = FastAPI()
+
+load_dotenv()
+api_key = os.getenv("API_KEY")
 
 # Load embedding model locally
 embed_model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B")
 
 # ChromaDB setup
-chroma_client = chromadb.Client(Settings(chroma_db_impl="duckdb+parquet", persist_directory="chroma_store"))
-collection = chroma_client.get_or_create_collection(
-    name="md-docs",
-    embedding_function=SentenceTransformerEmbeddingFunction(embed_model)
-)
+chroma_client = chromadb.PersistentClient(path="chroma_store")
+collection = chroma_client.get_or_create_collection(name="md-docs")
 
 class QuestionPayload(BaseModel):
     question: str
@@ -49,6 +48,7 @@ def llm_ans(question: str, context_snippets: list) -> str:
     headers = {
         "Content-Type": "application/json"
     }
+    
     if api_key:
         headers["Authorization"] = f"Bearer {api_key}"
 
